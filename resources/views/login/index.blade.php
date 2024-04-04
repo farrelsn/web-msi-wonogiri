@@ -10,7 +10,7 @@
                 <img class="mt-4" src="/images/logo-msi.png" alt="Logo MSI" style="width: 200px">
             </div>
             <div class="card-body">
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login.authenticate') }}" method="POST">
                     @csrf
                     <div class="sm:col-span-4">
                         <div class="mb-4">

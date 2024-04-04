@@ -32,17 +32,29 @@ class AuthController extends Controller
             'username.required' => 'Username harus diisi!',
             'password.required' => 'Password harus diisi!'
         ]);
+        
+        // dd($request);
 
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt(['username'=>$request->username,'password'=>$request->password])){
             $request->session()->regenerate();
             // dd($request);
             return redirect()->route('admin')->with('success', 'Login berhasil!');
         }
+        else{
+            return back()->withErrors([
+                'username' => 'Username atau Password salah!',
+            ]);
 
+        }
         // return back();
 
-        return back()->withErrors([
-            'username' => 'Username atau Password salah!',
-        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('login');
     }
 }

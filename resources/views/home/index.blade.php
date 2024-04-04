@@ -53,16 +53,20 @@
     </div>
 </section>
 
-<section id="visi-misi" class="services section-bg">
-    <div class="mx-auto p-10 flex">
+<section id="visi-misi" class="services section-bg bg-slate-200">
+    <div class="flex flex-col min-h-screen items-center">
 
-      <div class="text-center">
-        <h2 class="text-3xl font-bold  pt-8">VISI YAYASAN </h2>
-        <h3 class="text-3l font-bold">MENTARI SEHAT INDONESIA</h3>
-        <p>Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
-        <a href="about-us" target="_blank" class="btn bg-slate-800 text-white mt-3 ">Selengkapnya</a>
-      </div>
-
+        <h2 class="text-3xl font-bold pt-8 uppercase">Visi dan Misi</h2>
+        <h3 class="text-3l font-bold uppercase mb-4">Yayasan Mentari Sehat Indonesia</h3>
+        <div class="flex gap-2">  
+            <div class="flex-auto h-300">
+                <img src="images/background home.jpg" alt="">
+            </div>
+            <div class="flex-auto w-64">
+                <h3 class="text-3l font-bold uppercase text-center">Visi</h3>
+                <p class="text-justify">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
+            </div>
+        </div>
     </div>
   </section>
 @endsection
