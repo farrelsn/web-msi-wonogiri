@@ -2,12 +2,14 @@
 
 @section('content')
 {{-- Login Page --}}
-<section id="login-page" style="background-color: rgb(95, 95, 95)" >
+
+<section id="login-page" class="bg-cover" style="background-image:url('images/msi-tv-one.jpg')" >
+    {{-- <a href="/" class="btn btn-primary mb-3 position-absolute" style="top: 5%; left: 10%; margin-right: 10%;">Kembali</a> --}}
     <div class="flex flex-col min-h-screen justify-center items-center text-black">
-        <div class="card" id="login-card" style="background-color: rgb(255, 255, 255)">
+        <div class="card mt-4" id="login-card" style="background-color: rgb(255, 255, 255)">
             <div class="card-title justify-center items-center">
                 {{-- <h1 class="text-3xl font-bold uppercase mt-4">Login</h1> --}}
-                <img class="mt-4" src="/images/logo-msi.png" alt="Logo MSI" style="width: 200px">
+                <img class="mt-6 mb-0" src="/images/msi-wonogiri.png" alt="Logo MSI" style="width: 180px">
             </div>
             <div class="card-body">
                 <form action="{{ route('login.authenticate') }}" method="POST">

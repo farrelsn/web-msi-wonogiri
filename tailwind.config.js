@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -6,7 +8,12 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                cyan: colors.cyan,
+                teal: colors.teal,
+            },
+        },
     },
     plugins: [require("daisyui")],
 };

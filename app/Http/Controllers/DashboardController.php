@@ -12,7 +12,10 @@ class DashboardController extends Controller
     public function index()
     {
         $title = 'Dashboard';
-        return view('admin.index', compact('title'));
+        if(auth()->user() != null){
+            return view('admin.index', compact('title'));
+        }
+        return redirect()->route('login');
     }
 
     /**

@@ -1,4 +1,6 @@
-<div class="navbar bg-white fixed top-0 uppercase text-black" id="navbar">
+
+
+<div class="navbar bg-dark fixed top-0 uppercase text-white p-8" id="navbar">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -16,7 +18,7 @@
           <li><a>Item 3</a></li>
         </ul>
       </div>
-      <a href="{{ route('home') }}"><img src="images/msi-wonogiri.jpeg" alt="" style="width: 80px"></a>
+      <a href="{{ route('home') }}"><img src="images/msi-wonogiri.png" alt="" style="width: 80px"></a>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
@@ -45,16 +47,16 @@
         var navbar = document.querySelector('#navbar');
         if(window.scrollY > 0) {
             // navbar.classList.add('p-4');
-            // navbar.classList.add('bg-slate-800','opacity-30');
-            navbar.classList.add('bg-white');
+            navbar.classList.add('bg-white/50','text-black');
+            // navbar.classList.add('bg-white');
             // navbar.style.background-color = "rgba(0, 0, 0, 0.5)"
             // navbar.classList.remove('bg-transparent','p-8');
-            // navbar.classList.remove('p-8');
+            navbar.classList.remove('p-8','text-white', 'bg-transparent');
         } else {
             // navbar.classList.add('p-8');
-            // navbar.classList.add('bg-transparent','p-8');
+            navbar.classList.add('bg-transparent','p-8','text-white');
             // navbar.style.background-color = "transparent";
-            // navbar.classList.remove('bg-white');
+            navbar.classList.remove('bg-white/50','text-black');
             // navbar.classList.remove('bg-slate-800','opacity-30');
             // navbar.classList.remove('p-4');
         } 

@@ -2,52 +2,57 @@
 
 @section('content')
 
-{{-- Carousel --}}
-<section id="beranda" >
-    <div class="flex flex-col min-h-screen justify-center items-center text-white">
-        <h2 class="text-3xl font-bold">Selamat datang di website...</h1>
-        <h1 class="text-4xl font-bold mt-6 uppercase">Yayasan Mentari Sehat Indonesia</h1>
+{{-- Hero --}}
+
+<section class="flex justify-center items-center" id="beranda" style="min-height: 100vh">
+    <div class="text-center text-white mt-4" >
+        <h1 class="text-5xl font-bold mt-6 uppercase">Yayasan Mentari Sehat Indonesia</h1>
         <h3 class="text-4xl font-bold mt-2 uppercase">Kabupaten Wonogiri</h1>
-        <a class="btn btn-outline btn-accent mt-4 uppercase" href="">Selengkapnya</a>
+            <div class="divider divider-warning"></div>
+        <a class="btn btn-outline btn-accent mt-4 uppercase" href="#berita">Selengkapnya</a>
+        {{-- <h1 class="text-2xl font-bold mt-6 uppercase">Yayasan Mentari Sehat Indonesia</h1>
+        <h3 class="text-2xl font-bold mt-2 uppercase">Kabupaten Wonogiri</h1> --}}
     </div>
     
 </section>
 
-<section id="berita">
+<section id="berita" class="flex justify-center items-center">
     {{-- Berita --}} 
-    <div class="text-center">
-        <h1 class="text-3xl font-bold pt-8">Berita & Kegiatan</h1>
-    </div>
-    <div class="container mx-auto p-10 flex">
-
-        <div class="card mx-2 w-96 bg-base-100 shadow-xl">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-            <h2 class="card-title">Sepatu!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-            </div>
+    <div class="container mx-12">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold pt-8 uppercase">Berita dan Kegiatan</h1>
         </div>
-        <div class="card mx-2 w-96 bg-base-100 shadow-xl">
-            <figure><img src="images/sata_andagi.jpg" alt="sata_andagi" /></figure>
-            <div class="card-body">
-            <h2 class="card-title">SATA ANDAGI!</h2>
-            <p>SATA ANDAGI</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+        <div class="container py-8 flex flex-wrap justify-between">
+    
+            <div class="card my-2 mx-2 w-96 bg-base-100 shadow-xl">
+                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div class="card-body">
+                <h2 class="card-title">Sepatu!</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, soluta magni, dicta optio quaerat sint vitae deserunt facere blanditiis eveniet nisi pariatur cum expedita aliquam reprehenderit? Nesciunt amet voluptates quas!</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
+                </div>
             </div>
+            <div class="card mx-2 w-96 bg-base-100 shadow-xl">
+                <figure><img src="images/sata_andagi.jpg" alt="sata_andagi" /></figure>
+                <div class="card-body">
+                <h2 class="card-title">SATA ANDAGI!</h2>
+                <p>SATA ANDAGI</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
+                </div>
             </div>
-        </div>
-        <div class="card mx-2 w-96 bg-base-100 shadow-xl">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-            <h2 class="card-title">Sepatu!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
+            <div class="card mx-2 w-96 bg-base-100 shadow-xl">
+                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div class="card-body">
+                <h2 class="card-title">Sepatu!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
+                </div>
             </div>
         </div>
     </div>
