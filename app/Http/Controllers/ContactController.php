@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pesan;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -28,7 +29,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        // $request->validate([
+        //     'nama' => 'required',
+        //     'email' => 'required',
+        //     'pesan' => 'required',
+        // ]);
+        pesan::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'pesan' => $request->pesan,
+        ]);
+        return redirect()->back()->with('success', 'Pesan berhasil dikirim');
     }
 
     /**

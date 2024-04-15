@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pengurus;
+use App\Models\pesan;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,8 +14,10 @@ class DashboardController extends Controller
     public function index()
     {
         $title = 'Dashboard';
+        $pesan = pesan::all();
+        $pengurus = pengurus::all();
         if(auth()->user() != null){
-            return view('admin.index', compact('title'));
+            return view('admin.index', compact('title','pesan','pengurus'));
         }
         return redirect()->route('login');
     }

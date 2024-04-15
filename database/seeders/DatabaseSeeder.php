@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UsersSeeder::class,
+            PesanSeeder::class,
+            PengurusSeeder::class,
         ]);
     }
 }

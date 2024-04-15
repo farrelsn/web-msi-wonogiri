@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pesan;
 use Illuminate\Http\Request;
 
 class PesanController extends Controller
@@ -16,7 +17,8 @@ class PesanController extends Controller
 
     public function daftar(){
         $title = 'Daftar Pesan';
-        return view('admin.daftar_pesan.index', compact('title'));
+        $pesan = pesan::all();
+        return view('admin.daftar_pesan.index', compact('title','pesan'));
     }
 
     /**
@@ -60,10 +62,17 @@ class PesanController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+ * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $post = pesan::find($id);
+        if($post){
+            $post->delete();
+            return redirect()->route('admin.daftar-pesan')->with('success','Data berhasil dihapus');
+        }
+        else{
+            return redirect()->route('admin.daftar-pesan')->with('error','Data tidak ditemukan');
+        }
     }
 }

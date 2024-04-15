@@ -6,9 +6,9 @@
         <h1 class="text-3xl font-bold pt-8">Daftar Berita & Kegiatan</h1>
         <div class="divider divider-warning"></div>
     </div>
-
-    <div class="">
-        <h2 class="text-2xl my-2" >Total Data Berita & Kegiatan: </h2>
+    <div class="my-4 py-2">
+        <h2 class="text-2xl" >Total Data Berita & Kegiatan: <a href="" class="btn btn-outline btn-xs sm:btn-sm md:btn-sm btn-primary text-white float-end">Tambah</a></h2>
+        
     </div>
     {{-- Daftar Berita --}}
     <div class="overflow-x-auto border-solid mt-2">

@@ -21,6 +21,15 @@
         @include('layouts.sidebar')
     @endif
 
-    @include('layouts.footer')
+    
+    @if (request()->is('admin*'))
+    {{-- Admin Footer --}}
+        @include('layouts.footer_admin')
+    @else
+    {{-- Default Footer --}}
+        @include('layouts.footer')
+    @endif
+
+    {{-- @include('layouts.footer') --}}
 </body>
 </html>

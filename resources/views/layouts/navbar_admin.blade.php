@@ -4,9 +4,8 @@
       
         <a href="{{ route('admin') }}" class="btn btn-ghost text-sm lg:text-xl uppercase "><img class="rounded-full w-6 lg:w-10" src="{{asset('images/msi-wonogiri.jpeg')}}" alt="" style="">SSR MSI Kabupaten Wonogiri</a>
     </div>
-    <div class="flex-none">
+    {{-- <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        {{-- <li><a href="{{route('logout')}}">Link</a></li> --}}
         <li>
           <details>
             <summary>
@@ -19,7 +18,7 @@
           </details>
         </li>
       </ul>
-    </div>
+    </div> --}}
 </div>
 
 <div class="drawer lg:drawer-open">

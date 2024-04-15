@@ -37,20 +37,33 @@
                 </div>
             </div>
             <div class="bg-white rounded-xl shadow-xl p-8 text-gray-600 w-full">
-                <form action="" class="flex flex-col space-y-4">
+                @if ($success = Session::get('success'))
+                    <div role="alert" class="alert alert-success mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>{{ $success }}</span>
+                        <button id="close"><i class="fa-solid fa-xmark float-end"></i></button>
+                    </div>
+                    <script>
+                        document.getElementById('close').addEventListener('click', function() {
+                            this.parentElement.style.display = 'none';
+                        });
+                    </script>
+                @endif
+                <form action="{{ route('kontak-kami.store') }}" class="flex flex-col space-y-4" method="POST">
+                    @csrf
                     <div>
                         <label for="nama" class="text-sm">Nama</label>
-                        <input name="nama" type="text" id="nama" class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-teal-300" placeholder="Nama">
+                        <input name="nama" type="text" id="nama" class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-teal-300" placeholder="Nama" required>
                     </div>
                     <div>
                         <label for="email" class="text-sm">Email</label>
-                        <input name="email" type="email" id="email" class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-teal-300" placeholder="Email">
+                        <input name="email" type="email" id="email" class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-teal-300" placeholder="Email" required>
                     </div>
                     <div>
                         <label for="pesan" class="text-sm">Pesan</label>
-                        <textarea name="pesan" id="pesan" cols="30" rows="5" class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-teal-300" placeholder="Pesan"></textarea>
+                        <textarea name="pesan" id="pesan" cols="30" rows="5" class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-teal-300" placeholder="Pesan" required></textarea>
                     </div>
-                    <button class="btn btn-warning inline-block self-end">Kirim Pesan</button>
+                    <button class="btn btn-warning inline-block self-end" type="submit">Kirim Pesan</button>
                 </form>
             </div>
         </div>
