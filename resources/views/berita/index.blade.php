@@ -11,14 +11,28 @@
     
 </section> --}}
 
-<section class="flex justify-center items-center" id="beranda" style="min-height: 50vh">
-    <div class="text-center text-white mt-4" >
-        <h2 class="text-5xl font-bold uppercase">Berita dan Kegiatan</h1>
-            <div class="divider divider-warning"></div>
-        {{-- <h1 class="text-2xl font-bold mt-6 uppercase">Yayasan Mentari Sehat Indonesia</h1>
-        <h3 class="text-2xl font-bold mt-2 uppercase">Kabupaten Wonogiri</h1> --}}
+<section class="flex items-center bg-cover bg-center" id="beranda" style="min-height: 50vh; background-image:url('images/validasi-data.jpeg')">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container relative z-10 mx-auto text-center text-white uppercase mt-6">
+        <h2 class="w-fit mx-auto text-center font-bold text-3xl md:text-4xl lg:text-5xl ">Berita dan Kegiatan</h1>
+        {{-- <div class="text-sm lg:text-base breadcrumbs flex items-center justify-center ">
+            <ul>
+                <li><a href="{{route('home')}}">Beranda</a></li> 
+                <li class="active">Berita dan Kegiatan</li> 
+            </ul>
+        </div> --}}
+        <nav class="w-full mt-2 rounded-md  flex items-center justify-center">
+            <ol class="list-reset flex">
+              <li>
+                <a href="{{route('home')}}">Beranda</a>
+              </li>
+              <li>
+                <span class="mx-2">/</span>
+              </li>
+              <li class="active">Berita dan Kegiatan</li>
+            </ol>
+          </nav>
     </div>
-    
 </section>
 
 <section id="berita" class="flex justify-center items-center">

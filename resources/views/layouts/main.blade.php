@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
     @include('layouts.head')
-<body>
+<body class="font-poppins">
 
     {{-- Navbar --}}
     {{-- Include Navbar based on Route Group or Route Name --}}
@@ -31,5 +31,16 @@
     @endif
 
     {{-- @include('layouts.footer') --}}
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

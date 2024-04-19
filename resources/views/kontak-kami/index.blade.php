@@ -2,22 +2,76 @@
 
 @section('content')
     
-<section class="flex justify-center items-center" id="beranda" style="min-height: 50vh">
-    <div class="text-center text-white w-96 mt-4" >
-        <h2 class="text-5xl font-bold uppercase">Kontak Kami</h1>
-            <div class="divider divider-warning"></div>
-        {{-- <h1 class="text-2xl font-bold mt-6 uppercase">Yayasan Mentari Sehat Indonesia</h1>
-        <h3 class="text-2xl font-bold mt-2 uppercase">Kabupaten Wonogiri</h1> --}}
+<section class="flex items-center bg-cover bg-center" id="beranda" style="min-height: 50vh; background-image:url('images/validasi-data.jpeg')">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container relative z-10 mx-auto text-center text-white uppercase mt-6">
+        <h2 class="w-fit mx-auto text-center font-bold text-3xl md:text-4xl lg:text-5xl ">Kontak Kami</h1>
+        <nav class="w-full mt-2 rounded-md  flex items-center justify-center">
+            <ol class="list-reset flex">
+              <li>
+                <a href="{{route('home')}}">Beranda</a>
+              </li>
+              <li>
+                <span class="mx-2">/</span>
+              </li>
+              <li class="active">Kontak Kami</li>
+            </ol>
+          </nav>
     </div>
-    
 </section>
+
+<section id="kontak-kami" class="min-h-screen">
+
+    <div class="container px-5 py-8 mx-auto flex sm:flex-nowrap flex-wrap">
+        <div
+            class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+            <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
+                marginwidth="0" scrolling="no"
+                src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+                style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+            <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md ">
+                <div class="lg:w-1/2 px-6">
+                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Alamat</h2>
+                    <p class="mt-1">Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter</p>
+                </div>
+                <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Email</h2>
+                    <a class="leading-relaxed">ssr.msikabwonogiri@gmail.com</a>
+                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4 uppercase">Nomor telepon</h2>
+                    <p class="leading-relaxed">123-456-7890</p>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+            <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Kontak Kami</h2>
+            <p class="leading-relaxed mb-5 text-gray-600">Silahkan kirim pesan ke SSR MSI Kabupaten Wonogiri
+            </p>
+            <div class="relative mb-4">
+                <label for="nama" class="leading-7 text-sm text-gray-600">Nama</label>
+                <input type="text" id="nama" name="nama" class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="pesan" class="leading-7 text-sm text-gray-600">Pesan</label>
+                <textarea id="pesan" name="pesan" class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+            </div>
+            <button class="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Kirim Pesan</button>
+            {{-- <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral
+                artisan.</p> --}}
+        </div>
+    </div>
+</section>
+
 
 <section id="kontak-kami" style="">
     <div class="flex min-h-screen w-full justify-center">
         <div class="flex flex-col bg-white w-full p-8 text-black space-y-6 justify-between">
             <div class="flex flex-col space-y-2">
-                <h1 class="text-4xl font-bold tracking-wide">Kontak Kami</h1>
-                <div class="divider divider-warning"></div>
+                <h1 class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-start font-bold text-3xl text-slate-800 uppercase">Kontak Kami</h1>
+                {{-- <div class="divider divider-warning"></div> --}}
                 <p class="pt-2 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, amet vel minus facere dolorem earum porro tenetur, labore nobis doloribus ipsa quod voluptatibus fuga aut odit iste sint expedita modi.
                 Vitae, blanditiis molestias magnam, minima hic vel cum consequatur, omnis perferendis debitis nobis officiis recusandae tenetur accusantium? Facere cumque necessitatibus beatae obcaecati, ducimus alias expedita, quas voluptatum facilis quis velit.
                 Voluptatem laborum quidem, quaerat, quod itaque suscipit ut soluta natus officiis fugit neque molestiae qui eveniet doloremque possimus consectetur labore blanditiis officia error magnam excepturi. Optio dicta dolor dolores dignissimos.</p>

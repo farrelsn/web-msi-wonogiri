@@ -22,8 +22,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 
 // Profil
-Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
-Route::get('/profil#pengurus')->name('pengurus');
+Route::get('/tentang-kami', [ProfilController::class, 'index'])->name('profil');
+Route::get('/tentang-kami#pengurus')->name('pengurus');
 
 // Kontak Kami
 Route::get('/kontak-kami', [ContactController::class,'index'])->name('kontak-kami');

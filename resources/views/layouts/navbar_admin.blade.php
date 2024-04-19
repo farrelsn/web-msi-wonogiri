@@ -1,4 +1,4 @@
-<div class="navbar bg-slate-700 text-white">
+<div class="navbar bg-slate-700 text-white ">
     <label id="sidebar-label" for="sidebar" class=" text-white font-bold py-2 px-4 rounded"><i class="fa-solid fa-bars"></i></label>
     <div class="flex-1">
       

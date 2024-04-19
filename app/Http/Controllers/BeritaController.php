@@ -11,7 +11,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $title = 'Berita';
+        $title = 'MSI Kabupaten Wonogiri | Berita';
         return view('berita.index', compact('title'));
     }
 

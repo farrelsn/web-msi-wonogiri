@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pengurus;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'MSI Kabupaten Wonogiri';
-        return view('home.index', compact('title'));
+        $pengurus = pengurus::all();
+        return view('home.index', compact('title', 'pengurus'));
     }
 
     /**

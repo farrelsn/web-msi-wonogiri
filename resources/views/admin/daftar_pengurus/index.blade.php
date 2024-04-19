@@ -26,7 +26,6 @@
             });
         </script>
     @endif
-    @if (count($pengurus) != 0)
     <div class="">
         <h1 class="text-3xl font-bold pt-8">Daftar Pengurus</h1>
         <div class="divider divider-warning"></div>
@@ -35,6 +34,7 @@
         <h2 class="text-2xl" >Total Data Pengurus: {{ count($pengurus) }}<a href="{{ route('admin.daftar-pengurus.create') }}" class="btn btn-outline btn-xs sm:btn-sm md:btn-sm btn-primary text-white float-end">Tambah</a></h2>
         
     </div>
+    @if (count($pengurus) != 0)
     {{-- Daftar Pengurus --}}
     <div class="overflow-x-auto border-solid mt-2">
         <table class="table">
