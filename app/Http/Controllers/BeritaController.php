@@ -102,6 +102,21 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        
+        $berita = berita::find($id);
+
+        if($berita){
+            if($berita->gambar != ''){
+                $destinationPath = 'foto_berita';
+                $image_path = public_path($destinationPath).'/'.$berita->gambar;
+                if(file_exists($image_path)){
+                    unlink($image_path);
+                }
+            }
+            $berita->delete();
+            return redirect()->route('admin.daftar-berita')->with('success','Data berhasil dihapus');
+        }
+        else{
+            return redirect()->route('admin.daftar-berita')->with('error','Data tidak ditemukan');
+        }
     }
 }
