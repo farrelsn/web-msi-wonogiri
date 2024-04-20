@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\berita;
 use App\Models\pengurus;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class HomeController extends Controller
     {
         $title = 'MSI Kabupaten Wonogiri';
         $pengurus = pengurus::all();
-        return view('home.index', compact('title', 'pengurus'));
+        $berita = berita::orderBy('id', 'desc')->take(6)->get();
+        return view('home.index', compact('title', 'pengurus', 'berita'));
     }
 
     /**

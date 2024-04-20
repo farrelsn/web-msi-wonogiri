@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\berita;
 use App\Models\pengurus;
 use App\Models\pesan;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class DashboardController extends Controller
         $title = 'Dashboard';
         $pesan = pesan::all();
         $pengurus = pengurus::all();
+        $berita = berita::all();
         if(auth()->user() != null){
-            return view('admin.index', compact('title','pesan','pengurus'));
+            return view('admin.index', compact('title','pesan','pengurus','berita'));
         }
         return redirect()->route('login');
     }

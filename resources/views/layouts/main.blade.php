@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="!scroll-smooth">
     @include('layouts.head')
 <body class="font-poppins">
 
     {{-- Navbar --}}
-    {{-- Include Navbar based on Route Group or Route Name --}}
-    @if (request()->is('admin*'))
-    {{-- Admin Navbar --}}
-        @include('layouts.navbar_admin')
-    @else
-    {{-- Default Navbar --}}
-        @include('layouts.navbar')
+    {{-- No navbar if it's the login page --}}
+    @if (!request()->is('login'))
+        {{-- Include Navbar based on Route Group or Route Name --}}
+        @if (request()->is('admin*'))
+        {{-- Admin Navbar --}}
+            @include('layouts.navbar_admin')
+        @else
+        {{-- Default Navbar --}}
+            @include('layouts.navbar')
+        @endif
     @endif
-
 
     {{-- Content --}}
     @yield('content')
@@ -22,12 +24,14 @@
     @endif
 
     
-    @if (request()->is('admin*'))
-    {{-- Admin Footer --}}
-        @include('layouts.footer_admin')
-    @else
-    {{-- Default Footer --}}
-        @include('layouts.footer')
+    @if (!request()->is('login'))
+        @if (request()->is('admin*'))
+        {{-- Admin Footer --}}
+            @include('layouts.footer_admin')
+        @else
+        {{-- Default Footer --}}
+            @include('layouts.footer')
+        @endif
     @endif
 
     {{-- @include('layouts.footer') --}}

@@ -27,17 +27,16 @@
         <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh SSR MSI Kabupaten Wonogiri.</div>
         {{-- <div class="divider divider-warning font-bold"></div> --}}
         <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
+            @foreach($berita as $b)
             <div
                 class="border-r border-b border-l border-slate-400 lg:border-t lg:border-slate-400 bg-white rounded-b lg:rounded-b-none h-full lg:rounded-r flex flex-col justify-start leading-normal">
-                <div class="h-96 w-full">
-                    <img class="object-fill h-full w-full" src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" class="w-contain mb-3">
+                <div class="h-80 w-full">
+                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar) }}" class="w-contain mb-3">
                 </div>
                 <div class="p-4 pt-2 text-center">
                     <div class="mb-8">
-                        <a href="#" class="text-gray-900 font-bold text-lg mb-2 inline-block">Can
-                            coffee make you a better developer?</a>
-                        <p class="text-gray-700 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid harum expedita sapiente debitis commodi autem deleniti illo laudantium ullam, voluptatem, recusandae fugit consequuntur saepe voluptas doloribus. Modi enim laboriosam nihil.</p>
+                        <a href="#" class="text-gray-900 font-bold text-lg mb-2 inline-block">{{ $b->judul }}</a>
+                        <p class="text-gray-700 text-sm">{{ Str::limit($b->isi, 200) }}</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <a href="" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
@@ -45,8 +44,9 @@
                     </div>
                 </div>
             </div>
+            @endforeach
     
-            <div
+            {{-- <div
                 class="border-r border-b border-l border-slate-400 lg:border-t lg:border-slate-400 bg-white rounded-b lg:rounded-b-none h-full lg:rounded-r flex flex-col justify-start leading-normal">
                 <div class="h-96 w-full">
                     <img class="object-fill h-full w-full" src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" class="w-contain mb-3">
@@ -101,13 +101,13 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
     
         </div>
         <div class="flex flex-col items-center justify-center">
             {{-- <a href="" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Lihat Semua</a>
              --}}
-             <a class="font-semibold hover:text-indigo-600 underline transition-all duration-300" href="">Berita Lainnya <i class="fa-solid fa-arrow-right"></i></a>
+             <a class="font-semibold hover:text-indigo-600 underline transition-all duration-300" href="{{ route('berita') }}">Berita Lainnya <i class="fa-solid fa-arrow-right"></i></a>
 
         </div>
         

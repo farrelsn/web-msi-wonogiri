@@ -35,11 +35,18 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function (){
 
     // Berita
     Route::get('/daftar-berita', [BeritaController::class, 'daftar'])->name('admin.daftar-berita');
+    Route::get('/daftar-berita/tambah', [BeritaController::class, 'create'])->name('admin.daftar-berita.create');
+    Route::post('/daftar-berita/tambah', [BeritaController::class, 'store'])->name('admin.daftar-berita.store');
+    Route::get('/daftar-berita/edit/{id}', [BeritaController::class, 'edit'])->name('admin.daftar-berita.edit');
+    Route::post('/daftar-berita/edit/{id}', [BeritaController::class, 'update'])->name('admin.daftar-berita.update');
+    Route::post('/daftar-berita/delete/{id}', [BeritaController::class, 'destroy'])->name('admin.daftar-berita.destroy');
 
     // Pengurus
     Route::get('/daftar-pengurus', [PengurusController::class, 'daftar'])->name('admin.daftar-pengurus');
     Route::get('/daftar-pengurus/tambah', [PengurusController::class, 'create'])->name('admin.daftar-pengurus.create');
     Route::post('/daftar-pengurus/tambah', [PengurusController::class, 'store'])->name('admin.daftar-pengurus.store');
+    Route::get('/daftar-pengurus/edit/{id}', [PengurusController::class, 'edit'])->name('admin.daftar-pengurus.edit');
+    Route::post('/daftar-pengurus/edit/{id}', [PengurusController::class, 'update'])->name('admin.daftar-pengurus.update');
     Route::post('/daftar-pengurus/delete/{id}', [PengurusController::class, 'destroy'])->name('admin.daftar-pengurus.destroy');
 
     // Pesan

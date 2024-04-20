@@ -10,8 +10,8 @@ class AuthController extends Controller
     public function index(){
         $title = 'Login';
         if(Auth::check()){
-            // return redirect()->route('home');
-            dd('Login berhasil!');
+            return redirect()->route('admin')->with('success', 'Login berhasil!');
+            // dd('Login berhasil!');
         }
         else{
             return view('login.index', compact('title'));

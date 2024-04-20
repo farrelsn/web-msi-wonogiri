@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\berita;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -12,12 +13,14 @@ class BeritaController extends Controller
     public function index()
     {
         $title = 'MSI Kabupaten Wonogiri | Berita';
-        return view('berita.index', compact('title'));
+        $berita = berita::all();
+        return view('berita.index', compact('title','berita'));
     }
 
     public function daftar(){
         $title = 'Daftar Berita & Kegiatan';
-        return view('admin.daftar_berita.index', compact('title'));
+        $berita = berita::all();
+        return view('admin.daftar_berita.index', compact('title','berita'));
     }
 
     /**
@@ -25,7 +28,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Daftar Berita & Kegiatan';
+        return view('admin.daftar_berita.tambah', compact('title'));
     }
 
     /**
@@ -33,7 +37,38 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'judul' => 'required',
+            'isi' => 'required',
+        ], [
+            // 'foto.required' => 'Foto harus diisi',
+            'foto.image' => 'Foto harus berupa gambar',
+            'foto.mimes' => 'Foto harus berformat jpeg, png, jpg',
+            'foto.max' => 'Foto maksimal berukuran 2MB',
+            'judul.required' => 'Judul harus diisi',
+            'isi.required' => 'Isi harus diisi',
+        ]);
+
+        $image = $request->file('foto');
+
+        if($image){
+            $destinationPath = 'foto_berita';
+            $imageName = time().$image->getClientOriginalName();
+            $image->move($destinationPath, $imageName);
+        }
+        else{
+            $imageName = '';
+        }
+
+        berita::create([
+            'gambar' => $imageName,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+        ]);
+
+        return redirect()->route('admin.daftar-berita')->with('success', 'Berita berhasil ditambahkan!');
+
     }
 
     /**
@@ -49,7 +84,9 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $title = 'Edit Berita & Kegiatan';
+        $berita = berita::find($id);
+        return view('admin.daftar_berita.edit', compact('title','berita'));
     }
 
     /**
@@ -65,6 +102,6 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }

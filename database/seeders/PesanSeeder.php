@@ -15,7 +15,7 @@ class PesanSeeder extends Seeder
     {
         pesan::create([
             'nama' => 'admin',
-            'email' => 'contoh@gmail.com',
+            'email' => 'ssr.msikabwonogiri@gmail.com',
             'pesan' => 'Halo, ini adalah contoh pesan.'
         ]);
 

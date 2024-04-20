@@ -7,46 +7,39 @@
         <div class="divider divider-warning"></div>
     </div>
     <div class="my-4 py-2">
-        <h2 class="text-2xl" >Total Data Berita & Kegiatan: <a href="" class="btn btn-outline btn-xs sm:btn-sm md:btn-sm btn-primary text-white float-end">Tambah</a></h2>
+        <h2 class="text-2xl" >Total Data Berita & Kegiatan: {{ ($berita == null) ? "0" : count($berita) }}<a href="{{ route('admin.daftar-berita.create') }}" class="btn btn-outline btn-xs sm:btn-sm md:btn-sm btn-primary text-white float-end">Tambah</a></h2>
         
     </div>
     {{-- Daftar Berita --}}
     <div class="overflow-x-auto border-solid mt-2">
-        <table class="table">
-          <!-- head -->
-          <thead>
-            <tr>
-              <th></th>
-              <th>Judul</th>
-              <th>Deskripsi</th>
-              <th>Gambar</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- row 1 -->
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            <!-- row 2 -->
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            <!-- row 3 -->
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th></th>
+            <th>Judul</th>
+            <th>Isi</th>
+            <th>Foto</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($berita as $b)
+          <tr>
+              <th>{{$loop->iteration}}</th>
+              <td>{{$b->judul}}</td>
+              <td class="truncate" style="max-width: 200px;">{{$b->isi}}</td>
+              <td ><img class="mx-auto" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar) }}" alt="" style="width: 200px"></td>
+              <td class="text-center">
+                <a class="btn btn-warning text-white my-1" href="{{ route('admin.daftar-berita.edit', $b->id) }}">Edit</a>
+                <form onsubmit="return confirm('Apakah Anda Yakin ingin menghapus data ini?');" action="{{ route('admin.daftar-berita.destroy', $b->id) }}" method="POST" class="inline-block">
+                    @csrf
+                    <button type="submit" class="btn btn-error text-white my-1">Hapus</button>
+                </form>
+              </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+  </div>
 </div>
 @endsection

@@ -1,31 +1,37 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container px-12 min-h-screen" >
-    @if ($success = Session::get('success'))
+@if ($success = Session::get('success'))
+    <div class="absolute top-0 z-50 inset-x-0 mx-4">
         <div role="alert" class="alert alert-success mt-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <span>{{ $success }}</span>
+            <span class="ms-2 flex-grow">{{ $success }}</span>
             <button id="close"><i class="fa-solid fa-xmark float-end"></i></button>
         </div>
-        <script>
-            document.getElementById('close').addEventListener('click', function() {
-                this.parentElement.style.display = 'none';
-            });
-        </script>
-    @endif
-    @if ($error  = Session::get('error'))
+    </div>
+    <script>
+        document.getElementById('close').addEventListener('click', function() {
+            this.parentElement.style.display = 'none';
+        });
+    </script>
+@endif
+@if ($error  = Session::get('error'))
+    <div class="absolute top-0 z-50 inset-x-0 mx-4">
         <div role="alert" class="alert alert-error mt-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <span>{{ $error }}</span>
+            <span class="ms-2 flex-grow">{{ $error }}</span>
             <button id="close"><i class="fa-solid fa-xmark float-end"></i></button>
         </div>
-        <script>
-            document.getElementById('close').addEventListener('click', function() {
-                this.parentElement.style.display = 'none';
-            });
-        </script>
-    @endif
+    </div>
+    <script>
+        document.getElementById('close').addEventListener('click', function() {
+            this.parentElement.style.display = 'none';
+        });
+    </script>
+@endif
+        
+
+<div class="container px-12 min-h-screen" >
     <div class="">
         <h1 class="text-3xl font-bold pt-8">Daftar Pengurus</h1>
         <div class="divider divider-warning"></div>
@@ -55,10 +61,13 @@
                 <td ><img class="mx-auto" src="{{ ($p->foto == null) ? asset('foto_pengurus/562ebed9cd49b9a09baa35eddfe86b00.jpg') : asset('foto_pengurus/'.$p->foto) }}" alt="" style="width: 200px"></td>
                 <td>{{$p->nama}}</td>
                 <td>{!! $p->jabatan !!}</td>
-                <form onsubmit="return confirm('Apakah Anda Yakin ingin menghapus data ini?');" action="{{ route('admin.daftar-pengurus.destroy', $p->id) }}" method="POST">
-                    @csrf
-                    <td class="text-center"><button type="submit" class="btn btn-error text-white">Hapus</button></td>
-                </form>
+                <td class="text-center">
+                    <a class="btn btn-warning text-white my-1" href="{{ route('admin.daftar-pengurus.edit', $p->id) }}">Edit</a>
+                    <form onsubmit="return confirm('Apakah Anda Yakin ingin menghapus data ini?');" action="{{ route('admin.daftar-pengurus.destroy', $p->id) }}" method="POST" class="inline-block">
+                        @csrf
+                        <button type="submit" class="btn btn-error text-white my-1">Hapus</button>
+                    </form>
+                </td>
             </tr>
             @endforeach
           </tbody>

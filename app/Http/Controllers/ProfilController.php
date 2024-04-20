@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pengurus;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -12,7 +13,8 @@ class ProfilController extends Controller
     public function index()
     {
         $title = 'Profil MSI Wonogiri';
-        return view('profil.index', compact('title'));
+        $pengurus = pengurus::all();
+        return view('profil.index', compact('title','pengurus'));
     }
 
     /**

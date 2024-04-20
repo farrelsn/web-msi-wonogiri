@@ -39,11 +39,11 @@ class PengurusController extends Controller
         // dd($request);
         // request()->dd();
         request()->validate([
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'nama' => 'required',
             'jabatan' => 'required',
         ], [
-            'foto.required' => 'Foto harus diisi',
+            // 'foto.required' => 'Foto harus diisi',
             'foto.image' => 'Foto harus berupa gambar',
             'foto.mimes' => 'Foto harus berformat jpeg, png, jpg',
             'foto.max' => 'Foto maksimal berukuran 2MB',
@@ -55,9 +55,15 @@ class PengurusController extends Controller
 
         $image = $request->file('foto');
 
-        $destinationPath = 'foto_pengurus';
-        $imageName = time().$image->getClientOriginalName();
-        $request->foto->move(public_path($destinationPath), $imageName);
+        if($image){
+            $destinationPath = 'foto_pengurus';
+            $imageName = time().$image->getClientOriginalName();
+            $request->foto->move(public_path($destinationPath), $imageName);
+        }
+        else{
+            $imageName = '';
+        }
+
         
         //upload image
         // $imageName = time().$image->getClientOriginalName();
@@ -88,7 +94,9 @@ class PengurusController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $title = 'Edit Pengurus';
+        $pengurus = pengurus::find($id);
+        return view('admin.daftar_pengurus.edit', compact('title','pengurus'));
     }
 
     /**
@@ -96,7 +104,48 @@ class PengurusController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        request()->validate([
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nama' => 'required',
+            'jabatan' => 'required',
+        ], [
+            'foto.image' => 'Foto harus berupa gambar',
+            'foto.mimes' => 'Foto harus berformat jpeg, png, jpg',
+            'foto.max' => 'Foto maksimal berukuran 2MB',
+            'nama.required' => 'Nama harus diisi',
+            'jabatan.required' => 'Jabatan harus diisi',
+        ]);
+
+        // $pengurus = pengurus::find($id);
+        $db = pengurus::where('id',$id)->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+        ]);
+
+        $pengurus = pengurus::find($id);
+        if($request->hasFile('foto')){
+            if($pengurus->foto != ''){
+                $destinationPath = 'foto_pengurus';
+                $image_path = public_path($destinationPath).'/'.$pengurus->foto;
+                if(file_exists($image_path)){
+                    unlink($image_path);
+                }
+            }
+            $image = $request->file('foto');
+            $destinationPath = 'foto_pengurus';
+            $imageName = time().$image->getClientOriginalName();
+            $request->foto->move(public_path($destinationPath), $imageName);
+            $db = pengurus::where('id',$id)->update([
+                'foto' => $imageName,
+            ]);
+        }
+
+        if($db){
+            return redirect()->route('admin.daftar-pengurus')->with('success','Data berhasil diupdate');
+        }
+        else{
+            return redirect()->route('admin.daftar-pengurus')->with('error','Data gagal diupdate');
+        }
     }
 
     /**
