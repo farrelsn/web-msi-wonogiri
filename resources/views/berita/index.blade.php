@@ -33,81 +33,70 @@
             </ol>
           </nav>
     </div>
+    
 </section>
 
-<section id="berita" class="flex justify-center items-center">
-    {{-- Berita --}} 
-    <div class="container mx-12">
+<section class="flex flex-col justify-center items-center bg-slate-200 text-black py-8" id="berita-terbaru" style="min-height: 50vh;">
+    <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan Terbaru</div>
+    <div class="card card-side rounded-sm bg-base-100 shadow-xl my-4 ">
+        <figure><img class="h-64 w-64 " src="{{ ($beritaTerbaru[0]->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$beritaTerbaru[0]->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$beritaTerbaru[0]->gambar))  }}" alt="Foto Berita"/></figure>
+        <div class="card-body h-64 w-96 ">
+          <h2 class="card-title">{{ $beritaTerbaru[0]->judul }}</h2>
+          <p>{{ Str::limit($beritaTerbaru[0]->isi, 100) }}</p>
+          <div class="card-actions justify-end">
+            <a href="{{ route('berita.show',$beritaTerbaru[0]->id) }}" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
+          </div>
+        </div>
+    </div>
+    {{-- <div class="text-center">
+        <h1>Berita Terbaru</h1>
+    </div>
+    <div class="flex justify-center items-center  flex-col bg-white">
+        <div class="">
+            <img class="w-64" src="{{ ($berita[0]->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$berita[0]->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$berita[0]->gambar))  }}"  alt="">
+        </div>
         <div class="text-center">
-            <h1 class="text-3xl font-bold pt-8">Berita & Kegiatan</h1>
-            <div class="divider divider-warning"></div>
-            <span class="loading loading-spinner text-warning"></span>
+            <h1>Berita Terbaru</h1>
         </div>
-        
+    </div> --}}
+</section>
+<section id="berita" class="py-8 min-h-screen ">
+    <div class="container mx-auto ">
+        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan Lainnya</div>
+        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh SSR MSI Kabupaten Wonogiri.</div>
+        {{-- <div class="divider divider-warning font-bold"></div> --}}
+        @if($berita->count() > 0)
+        <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
+            @foreach ($berita as $b)
+            <div
+                class="border-r border-b border-l border-slate-400 lg:border-t lg:border-slate-400 bg-white rounded-b lg:rounded-b-none h-full lg:rounded-r hover:scale-105 transition-all duration-300 flex flex-col justify-start leading-normal">
+                <div class="h-80 w-full">
+                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar))  }}" class="w-contain mb-3">
+                </div>
+                <div class="p-4 pt-2 text-center ">
+                    <div class="mb-8">
+                        <a href="{{ route('berita.show',$b->id) }}" class="text-gray-900 font-bold text-lg mb-2 inline-block">{{ $b->judul }}</a>
+                        <p class="text-gray-700 text-sm">{{ Str::limit($b->isi, 200) }}</p>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <a href="{{ route('berita.show',$b->id) }}" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
 
-        <div class="card size-full min-h-64 h-full bg-base-100 shadow-xl image-full bg-contain">
-            <figure><img src="https://i.ytimg.com/vi/aCN4sKv9esM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBAxPClXZphdPz1xRDpp31kdntUpg" alt="Shoes" /></figure>
-            <div class="card-body">
-                <h2 class="card-title text-4xl">Minecraft but Donkey Kongs STEALS my DIAMONDS?!</h2>
-                <p>AEUH!??</p>
-                <div class="card-actions justify-end">
-                    <a href="" class="btn btn-primary">Lihat Selengkapnya</a>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        <div class="container py-8 flex flex-wrap justify-between">
-    
-            <div class="card m-2 w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                <h2 class="card-title">Sepatu!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-                </div>
-            </div>
-            <div class="card m-2 w-96 bg-base-100 shadow-xl">
-                <figure><img src="images/sata_andagi.jpg" alt="sata_andagi" /></figure>
-                <div class="card-body">
-                <h2 class="card-title">SATA ANDAGI!</h2>
-                <p>SATA ANDAGI</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-                </div>
-            </div>
-            <div class="card m-2 w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                <h2 class="card-title">Sepatu!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-                </div>
-            </div>
-            <div class="card m-2 w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                <h2 class="card-title">Sepatu!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-                </div>
-            </div>
-            <div class="card m-2 w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                <h2 class="card-title">Sepatu!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                </div>
-                </div>
-            </div>
+        <div class="flex justify-center items-center">
+            {{ $berita->links('../layouts.pagination') }}
         </div>
+        @else
+        <div class="flex flex-col items-center justify-center h-screen">
+            <img src="{{ asset('images/not_found.jpg') }}" alt="" style="width: 25%">
+            <h2 class="text-xl mt-2 text-slate-700">Data Tidak Ditemukan</h2>
+            <h3 class="text-md text-slate-400">Belum ada berita lainnya</h3>
+        </div>
+        @endif
+        
     </div>
 </section>
 

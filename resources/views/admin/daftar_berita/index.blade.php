@@ -47,6 +47,7 @@
             <th>Judul</th>
             <th>Isi</th>
             <th>Foto</th>
+            <th>Uploader</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -56,7 +57,19 @@
               <th>{{$loop->iteration}}</th>
               <td>{{$b->judul}}</td>
               <td class="truncate" style="max-width: 200px;">{{$b->isi}}</td>
-              <td ><img class="mx-auto" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar) }}" alt="" style="width: 200px"></td>
+              <td >
+                {{-- @if ($b->gambar != null)
+                  @php
+                      $gambarPath = 'foto_berita/'.$b->gambar;
+                      $gambarExists = Storage::disk('public')->exists($gambarPath);
+                      $gambarSrc = $gambarExists ? asset($gambarPath) : asset('foto_berita/empty.jpg');
+                  @endphp
+                  <img class="mx-auto" src="{{ $gambarSrc }}" alt="" style="width: 200px">
+                @else
+                    <img class="mx-auto" src="{{ asset('foto_berita/empty.jpg') }}" alt="" style="width: 200px">
+                @endif --}}
+                <img class="mx-auto" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar))  }}" alt="" style="width: 200px"></td>
+              <td class="text-center">{{$b->user->username}}</td>
               <td class="text-center">
                 <a class="btn btn-warning text-white my-1" href="{{ route('admin.daftar-berita.edit', $b->id) }}">Edit</a>
                 <form onsubmit="return confirm('Apakah Anda Yakin ingin menghapus data ini?');" action="{{ route('admin.daftar-berita.destroy', $b->id) }}" method="POST" class="inline-block">

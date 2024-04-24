@@ -38,6 +38,35 @@
     </div>
 </section>
 
+{{-- Visi Misi --}}
+<section id="visi-misi" class="py-8 min-h-screen bg-slate-700 text-white bg-cover bg-center" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container relative flex flex-col items-center z-10 mx-auto">
+        <div class="w-fit border-b-4 p-2 border-orange-500 text-center  font-bold text-3xl uppercase">Visi Yayasan Mentari Indonesia</div>
+        <div class="p-2 text-center text-lg text-gray-700 bg-white mt-4 max-w-2xl rounded-md hover:scale-105 transition-all duration-300">
+            <p class="text-justify text-base p-4">Visi yayasan Mentari Sehat Indonesia adalah penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat. </p>
+            </div>
+        </div>
+    </div>
+    <div class="container relative flex flex-col items-center mx-auto my-8">
+        <div class="w-fit border-b-4 p-2 border-orange-500 text-center font-bold text-3xl uppercase mb-4">Misi Yayasan Mentari Indonesia</div>
+        <div class="grid md:grid-flow-col gap-4 px-16">
+            <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
+                <h1 class="font-bold text-black p-2 text-xl">Bidang Kesehatan</h1>
+                <p class="text-gray-700 p-2 text-sm text-justify">Menggerakkan masyarakat untuk mewujudkan kemandirian dalam mengatasi dan menanggulangi masalah penyakit menular langsung dan mampu menjadi penggerak perubahan perilaku hidup bersih dan sehat di masyarakat.</p>
+            </div>
+            <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
+                <h1 class="font-bold text-black p-2 text-xl">Bidang Sosial</h1>
+                <p class="text-gray-700 p-2 text-sm text-justify">Menggerakkan seluruh komponen untuk mendorong perubahan dan perbaikan kehidupan sosial masyarakat.</p>
+            </div>
+            <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
+                <h1 class="font-bold text-black p-2 text-xl">Bidang Pendidikan</h1>
+                <p class="text-gray-700 p-2 text-sm text-justify">Membantu pemerintah untuk ikut serta mencerdaskan kehidupan bangsa, mendorong masyarakat untuk memperoleh hak pendidikan secara merata dan berkeadilan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 {{-- Pengurus --}}
 <section id="pengurus" class="py-8 bg-white min-h-screen">
     <div class="container mx-auto">

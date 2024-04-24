@@ -20,6 +20,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Berita
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 
 // Profil
 Route::get('/tentang-kami', [ProfilController::class, 'index'])->name('profil');

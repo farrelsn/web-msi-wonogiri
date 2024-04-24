@@ -9,7 +9,7 @@
             <h2 class="text-2xl font-bold" >Form Ubah Data Berita</h2>
             <div class="divider divider-warning m-0"></div>
         </div>
-        <form action="{{ route('admin.daftar-berita.store') }}" class="flex flex-col space-y-4  text-gray-600 " method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.daftar-berita.update',$berita->id) }}" class="flex flex-col space-y-4  text-gray-600 " method="POST" enctype="multipart/form-data">
             @csrf
             {{-- Judul --}}
             <div>
@@ -36,7 +36,7 @@
                 @enderror
                 <img src="{{ ($berita->gambar == null) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$berita->gambar) }}" class="mt-2" id="prev" class="w-full" src="" alt="">
             </div>
-            <button class="btn btn-success inline-block self-end text-white" type="submit">Tambah</button>
+            <button class="btn btn-success inline-block self-end text-white" type="submit">Ubah</button>
         </form>
     </div>
 </div>

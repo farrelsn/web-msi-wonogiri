@@ -48,7 +48,7 @@
                     <span class="text-xs text-error">{{ $message }}</span>
                 @enderror
             </div>
-            <button class="btn btn-success inline-block self-end text-white" type="submit">Tambah</button>
+            <button class="btn btn-success inline-block self-end text-white" type="submit">Ubah</button>
         </form>
     </div>
 </div>

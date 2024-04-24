@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use App\Models\users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BeritaController extends Controller
 {
@@ -13,13 +15,24 @@ class BeritaController extends Controller
     public function index()
     {
         $title = 'MSI Kabupaten Wonogiri | Berita';
-        $berita = berita::all();
-        return view('berita.index', compact('title','berita'));
+        $beritaTerbaru = berita::orderBy('id', 'desc')->take(1)->get();
+        if($beritaTerbaru){
+            $newest = [$beritaTerbaru[0]->id];
+            // selain terbaru
+            $berita = berita::whereNotIn('id', $newest)->orderBy('id', 'desc')->paginate(5);
+        }
+        else{
+            $berita = berita::orderBy('id', 'desc')->paginate(5);
+
+        }
+        return view('berita.index', compact('title','berita','beritaTerbaru'));
     }
 
     public function daftar(){
         $title = 'Daftar Berita & Kegiatan';
         $berita = berita::all();
+        $berita = berita::orderBy('id', 'desc')->get();
+        // $user = users::all();
         return view('admin.daftar_berita.index', compact('title','berita'));
     }
 
@@ -61,10 +74,13 @@ class BeritaController extends Controller
             $imageName = '';
         }
 
+        $user_id = Auth::user()->id;
+
         berita::create([
             'gambar' => $imageName,
             'judul' => $request->judul,
             'isi' => $request->isi,
+            'user_id' => $user_id
         ]);
 
         return redirect()->route('admin.daftar-berita')->with('success', 'Berita berhasil ditambahkan!');
@@ -76,7 +92,9 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $title = 'MSI Kabupaten Wonogiri | Berita';
+        $berita = berita::find($id);
+        return view('berita.show', compact('title','berita'));
     }
 
     /**
@@ -94,7 +112,45 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        request()->validate([
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'judul' => 'required',
+            'isi' => 'required',
+        ], [
+            'foto.image' => 'Foto harus berupa gambar',
+            'foto.mimes' => 'Foto harus berformat jpeg, png, jpg',
+            'foto.max' => 'Foto maksimal berukuran 2MB',
+            'judul.required' => 'Judul harus diisi',
+            'isi.required' => 'Isi harus diisi',
+        ]);
+
+        $berita = berita::find($id);
+        $image = $request->file('foto');
+
+        if($image){
+            $destinationPath = 'foto_berita';
+            $imageName = time().$image->getClientOriginalName();
+            $image->move($destinationPath, $imageName);
+
+            if($berita->gambar != ''){
+                $destinationPath = 'foto_berita';
+                $image_path = public_path($destinationPath).'/'.$berita->gambar;
+                if(file_exists($image_path)){
+                    unlink($image_path);
+                }
+            }
+        }
+        else{
+            $imageName = $berita->gambar;
+        }
+
+        $berita->update([
+            'gambar' => $imageName,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+        ]);
+
+        return redirect()->route('admin.daftar-berita')->with('success', 'Berita berhasil diubah!');
     }
 
     /**
