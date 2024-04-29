@@ -30,16 +30,17 @@
 
 <section id="berita" class="min-h-screen flex justify-center">
     {{-- Narasi --}}
-    <div class="container mx-12">
+    <div class="container mx-12 mb-8">
         <div class="text-center border-b-4 border-orange-500 p-2">
             <h1 class="text-3xl font-bold pt-8">{{ $berita->judul }}</h1>
             <h2 class=" text-start text-sm pt-2 text-gray-400">Diposting oleh {{ $berita->user->username }}, Dibuat tanggal {{ $berita->created_at->toFormattedDateString() }}</h2>
         </div>
-        <div class="w-full mt-2 p-4">
-            <img src="{{ ($berita->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$berita->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$berita->gambar))  }}" alt="{{ $berita->judul }}" class="w-full h-96 object-cover" />
+        <div class="w-full mt-2 p-4  ">
+            <img src="{{ ($berita->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$berita->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$berita->gambar))  }}" alt="{{ $berita->judul }}" class="w-full h-96 lg:object-cover" />
         </div>
-        <div>
-            <p class="text-justify text-sm p-4">{{ $berita->isi }}</p>
+        <div class="trix-content">
+
+            <div class="prose text-sm p-4">{!! $berita->isi !!}</div>
         </div>
 </section>
 

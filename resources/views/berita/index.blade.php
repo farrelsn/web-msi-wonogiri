@@ -36,13 +36,15 @@
     
 </section>
 
+@if(count($beritaTerbaru) > 0)
 <section class="flex flex-col justify-center items-center bg-slate-200 text-black py-8" id="berita-terbaru" style="min-height: 50vh;">
     <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan Terbaru</div>
     <div class="card card-side rounded-sm bg-base-100 shadow-xl my-4 ">
         <figure><img class="h-64 w-64 " src="{{ ($beritaTerbaru[0]->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$beritaTerbaru[0]->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$beritaTerbaru[0]->gambar))  }}" alt="Foto Berita"/></figure>
         <div class="card-body h-64 w-96 ">
           <h2 class="card-title">{{ $beritaTerbaru[0]->judul }}</h2>
-          <p>{{ Str::limit($beritaTerbaru[0]->isi, 100) }}</p>
+          <p class="overflow-hidden">{{ strip_tags(Str::limit($beritaTerbaru[0]->isi, 100, $end='...')) }}</p>
+          {{-- <p class="">{!! Str::limit($beritaTerbaru[0]->isi,100) !!}</p> --}}
           <div class="card-actions justify-end">
             <a href="{{ route('berita.show',$beritaTerbaru[0]->id) }}" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
           </div>
@@ -60,10 +62,13 @@
         </div>
     </div> --}}
 </section>
+@endif
+
+@if($berita->count() > 0)
 <section id="berita" class="py-8 min-h-screen ">
     <div class="container mx-auto ">
         <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan Lainnya</div>
-        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh SSR MSI Kabupaten Wonogiri.</div>
+        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
         {{-- <div class="divider divider-warning font-bold"></div> --}}
         @if($berita->count() > 0)
         <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
@@ -76,7 +81,7 @@
                 <div class="p-4 pt-2 text-center ">
                     <div class="mb-8">
                         <a href="{{ route('berita.show',$b->id) }}" class="text-gray-900 font-bold text-lg mb-2 inline-block">{{ $b->judul }}</a>
-                        <p class="text-gray-700 text-sm">{{ Str::limit($b->isi, 200) }}</p>
+                        <p class="text-gray-700 text-sm overflow-hidden">{{ strip_tags(Str::limit($b->isi, 200)) }}</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <a href="{{ route('berita.show',$b->id) }}" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
@@ -99,5 +104,5 @@
         
     </div>
 </section>
-
+@endif
 @endsection

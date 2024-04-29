@@ -1,6 +1,6 @@
 
 
-<div class="navbar fixed top-0 uppercase text-white p-8" id="navbar" style="z-index: 20">
+<div class="navbar fixed top-0 uppercase text-white p-8" id="navbar" style="z-index: 50">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">

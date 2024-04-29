@@ -20,7 +20,7 @@
 </section>
 
 <section id="profil">
-    <div class="flex items-center justify-center min-h-screen mx-12">
+    <div class="flex items-center justify-center min-h-screen mx-12 lg:mx-24">
         <div class="">
 
             <h1 class="text-4xl font-bold pt-8 uppercase border-b-4 border-orange-500 mb-4">Tentang Yayasan Mentari Sehat Indonesia</h1>
@@ -39,7 +39,7 @@
 </section>
 
 {{-- Visi Misi --}}
-<section id="visi-misi" class="py-8 min-h-screen bg-slate-700 text-white bg-cover bg-center" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
+{{-- <section id="visi-misi" class="py-8 min-h-screen bg-slate-700 text-white bg-cover bg-center" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container relative flex flex-col items-center z-10 mx-auto">
         <div class="w-fit border-b-4 p-2 border-orange-500 text-center  font-bold text-3xl uppercase">Visi Yayasan Mentari Indonesia</div>
@@ -63,6 +63,22 @@
                 <h1 class="font-bold text-black p-2 text-xl">Bidang Pendidikan</h1>
                 <p class="text-gray-700 p-2 text-sm text-justify">Membantu pemerintah untuk ikut serta mencerdaskan kehidupan bangsa, mendorong masyarakat untuk memperoleh hak pendidikan secara merata dan berkeadilan.</p>
             </div>
+        </div>
+    </div>
+</section> --}}
+
+<section id="visi-misi" class="flex flex-row bg-cover bg-center justify-center items-center min-h-screen bg-green-600" style="">
+    {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+    <div class="z-10 flex flex-col lg:items-center lg:flex-row lg:mx-24">
+        <div class="w-full lg:w-1/2 flex flex-wrap text-center lg:text-start lg:mt-12">
+            <div class="w-full mx-4">
+                <span class="block font-bold text-3xl lg:text-4xl text-white uppercase border-b-4 border-orange-500 p-2 mb-2">Visi dan Misi Yayasan MSI</span>
+                {{-- <h2 class="font-medium text-slate-400 mb-5 uppercase">Kabupaten Wonogiri</h2> --}}
+                <p class="font-bold italic text-slate-200 mb-10 p-2 leading-relaxed">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
+            </div>
+        </div>
+        <div class="w-full lg:w-1/2 lg:px-4">
+            <img class="w-full h-full" src="{{asset('images/validasi-data1.jpeg')}}" alt="">
         </div>
     </div>
 </section>

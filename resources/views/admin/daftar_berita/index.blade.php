@@ -40,6 +40,7 @@
     </div>
     {{-- Daftar Berita --}}
     <div class="overflow-x-auto border-solid mt-2">
+    @if (count($berita) != 0)
       <table class="table">
         <thead>
           <tr class="text-center">
@@ -56,7 +57,7 @@
           <tr>
               <th>{{$loop->iteration}}</th>
               <td>{{$b->judul}}</td>
-              <td class="truncate" style="max-width: 200px;">{{$b->isi}}</td>
+              <td>{{ strip_tags(Str::limit($b->isi, 50)) }}</td>
               <td >
                 {{-- @if ($b->gambar != null)
                   @php
@@ -81,6 +82,13 @@
           @endforeach
         </tbody>
       </table>
+    @else
+    <div class="flex flex-col items-center justify-center h-screen">
+        <img src="{{ asset('images/not_found.jpg') }}" alt="" style="width: 25%">
+        <h2 class="text-xl mt-2 text-black">Data Tidak Ditemukan</h2>
+        <h3 class="text-lg text-slate-400">Belum ada data pengurus yang terdaftar</h3>
+    </div>
+    @endif
   </div>
 </div>
 @endsection

@@ -3,9 +3,9 @@
 @section('content')
 
 {{-- Hero --}}
-<section id="home" class="flex items-center bg-cover bg-center min-h-screen" style="background-image: url('images/msi-wonogiri-puskesmas.jpeg')">
+<section id="home" class="flex items-center bg-cover bg-center min-h-screen z-30" style="background-image: url('images/msi-wonogiri-puskesmas.jpeg')">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="container relative z-10 mx-auto ">
+    <div class="container relative z-30 mx-auto ">
         <div class="flex flex-wrap text-center lg:text-start">
             <div class="w-full lg:w-1/2 px-4">
                 <h1 class="text-base font-semibold text-green-500">Selamat Datang di Website Resmi...</h1>
@@ -22,22 +22,22 @@
 </section>
 
 @if($berita->count() > 0)
-<section id="berita" class="py-8 min-h-screen ">
+<section id="berita" class="py-8 min-h-screen z-20 bg-slate-200">
     <div class="container mx-auto ">
         <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan</div>
-        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh SSR MSI Kabupaten Wonogiri.</div>
+        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
         {{-- <div class="divider divider-warning font-bold"></div> --}}
         <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
             @foreach($berita as $b)
             <div
-                class="border-r border-b border-l border-slate-400 lg:border-t lg:border-slate-400 bg-white rounded-b lg:rounded-b-none h-full lg:rounded-r hover:scale-105 transition-all duration-300 flex flex-col justify-start leading-normal">
+                class="border border-slate-400 lg:border-slate-400 bg-white rounded h-full hover:scale-105 transition-all duration-300 flex flex-col justify-start leading-normal">
                 <div class="h-80 w-full">
                     <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar))  }}" class="w-contain mb-3">
                 </div>
                 <div class="p-4 pt-2 text-center ">
                     <div class="mb-8">
                         <a href="{{ route('berita.show',$b->id) }}" class="text-gray-900 font-bold text-lg mb-2 inline-block">{{ $b->judul }}</a>
-                        <p class="text-gray-700 text-sm">{{ Str::limit($b->isi, 200) }}</p>
+                        <p class="text-gray-700 text-sm overflow-hidden">{{ Str::limit(strip_tags(Str::limit($b->isi, 200)),200 )}}</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <a href="{{ route('berita.show',$b->id) }}" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
@@ -76,33 +76,64 @@
 </section> --}}
 
 
-<section id="visi-misi" class="py-8 min-h-screen bg-slate-700 text-white bg-cover bg-center" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
+<section id="visi-misi" class="flex flex-row items-center justify-between bg-cover bg-center min-h-screen bg-green-600" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="container relative flex flex-col items-center z-10 mx-auto">
-        <div class="w-fit border-b-4 p-2 border-orange-500 text-center  font-bold text-3xl uppercase">Visi Yayasan Mentari Indonesia</div>
-        <div class="p-2 text-center text-lg text-gray-700 bg-white mt-4 max-w-2xl rounded-md hover:scale-105 transition-all duration-300">
-            <p class="text-justify text-base p-4">Visi yayasan Mentari Sehat Indonesia adalah penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat. </p>
-            </div>
-        </div>
+    <div class="h-full">
+        {{-- <img class="w-1/2 h-fit" src="{{ asset('images/msi-wonogiri-gambar.jpg') }}" alt=""> --}}
     </div>
-    <div class="container relative flex flex-col items-center mx-auto my-8">
-        <div class="w-fit border-b-4 p-2 border-orange-500 text-center font-bold text-3xl uppercase mb-4">Misi Yayasan Mentari Indonesia</div>
-        <div class="grid md:grid-flow-col gap-4 px-16">
-            <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
-                <h1 class="font-bold text-black p-2 text-xl">Bidang Kesehatan</h1>
-                <p class="text-gray-700 p-2 text-sm text-justify">Menggerakkan masyarakat untuk mewujudkan kemandirian dalam mengatasi dan menanggulangi masalah penyakit menular langsung dan mampu menjadi penggerak perubahan perilaku hidup bersih dan sehat di masyarakat.</p>
-            </div>
-            <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
-                <h1 class="font-bold text-black p-2 text-xl">Bidang Sosial</h1>
-                <p class="text-gray-700 p-2 text-sm text-justify">Menggerakkan seluruh komponen untuk mendorong perubahan dan perbaikan kehidupan sosial masyarakat.</p>
-            </div>
-            <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
-                <h1 class="font-bold text-black p-2 text-xl">Bidang Pendidikan</h1>
-                <p class="text-gray-700 p-2 text-sm text-justify">Membantu pemerintah untuk ikut serta mencerdaskan kehidupan bangsa, mendorong masyarakat untuk memperoleh hak pendidikan secara merata dan berkeadilan.</p>
+    <div class="container relative z-10 ">
+        <div class="flex flex-wrap text-center lg:text-start">
+            <div class="w-full lg:w-full px-4 lg:ps-96 lg:pl-96">
+                <span class="block font-bold text-3xl lg:text-4xl text-white uppercase">Visi dan Misi Yayasan Mentari Sehat Indonesia</span>
+                <h2 class="font-medium text-slate-400 mb-5 uppercase">Kabupaten Wonogiri</h2>
+                <p class="font-bold italic text-slate-200 mb-10 leading-relaxed">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
+                <a href="{{ route('profil') }}" class="text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Tentang Kami<i class="ms-4 fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
     </div>
 </section>
+
+
+{{-- <section id="visi-misi" class="py-8 min-h-screen  text-slate-800 bg-cover bg-center w-full  bg-green-500" style="
+    /* background: rgb(34,197,94);
+    background: linear-gradient(43deg, rgba(34,197,94,1) 31%, rgba(0,255,169,1) 100%);  */
+    /* background: rgb(252,252,69);
+    background: linear-gradient(196deg, rgba(252,252,69,1) 0%, rgba(34,197,94,1) 80%, rgba(34,197,197,1) 100%);  */
+">
+    <div class="container lg:flex">
+        <div class="w-1/2 z-20 flex grow justify-center items-center mx-auto">
+            <h1 class="w-fit border-b-4 p-2 border-orange-500 text-center  font-bold text-4xl uppercase">Visi & Misi</h1>
+        </div>
+        <div class="w-1/2 z-30 mx-auto">
+            <div class="container relative flex flex-col items-center ">
+                <div class="w-fit border-b-4 p-2 border-orange-500 text-center  font-bold text-3xl uppercase">Visi</div>
+                <div class="p-2 text-center text-lg text-gray-700 bg-white mt-4 max-w-2xl rounded-md hover:scale-105 transition-all duration-300">
+                    <p class="text-justify text-base p-4">Visi yayasan Mentari Sehat Indonesia adalah penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat. </p>
+                </div>
+            </div>
+        </div>
+        <div class="container relative flex flex-col items-center ">
+            <div class="w-fit border-b-4 p-2 border-orange-500 text-center font-bold text-3xl uppercase mb-4">Misi</div>
+            <div class="grid md:grid-flow-col gap-4 px-16">
+                <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
+                    <h1 class="font-bold text-black p-2 text-xl">Bidang Kesehatan</h1>
+                    <p class="text-gray-700 p-2 text-sm text-justify">Menggerakkan masyarakat untuk mewujudkan kemandirian dalam mengatasi dan menanggulangi masalah penyakit menular langsung dan mampu menjadi penggerak perubahan perilaku hidup bersih dan sehat di masyarakat.</p>
+                </div>
+                <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
+                    <h1 class="font-bold text-black p-2 text-xl">Bidang Sosial</h1>
+                    <p class="text-gray-700 p-2 text-sm text-justify">Menggerakkan seluruh komponen untuk mendorong perubahan dan perbaikan kehidupan sosial masyarakat.</p>
+                </div>
+                <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
+                        <h1 class="font-bold text-black p-2 text-xl">Bidang Pendidikan</h1>
+                        <p class="text-gray-700 p-2 text-sm text-justify">Membantu pemerintah untuk ikut serta mencerdaskan kehidupan bangsa, mendorong masyarakat untuk memperoleh hak pendidikan secara merata dan berkeadilan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> --}}
+
+
+
 
 {{-- Pengurus --}}
 <section id="pengurus" class="py-8 bg-white min-h-screen">

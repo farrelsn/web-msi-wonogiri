@@ -22,7 +22,10 @@
             {{-- Isi --}}
             <div>
                 <label for="isi" class="text-sm">Isi Berita</label>
-                <textarea name="isi" id="isi" class="textarea textarea-bordered text-sm w-full mt-2 ps-4" rows="8" placeholder="Isi berita" required></textarea>
+                {{-- <textarea name="isi" id="isi" class="textarea textarea-bordered text-sm w-full mt-2 ps-4" rows="8" placeholder="Isi berita" required></textarea> --}}
+                <input type="hidden" name="isi" id="isi">
+                <trix-editor input="isi" class="trix-content"></trix-editor>
+                {{-- @trix(\App\Post::class, 'isi') --}}
                 @error('isi')
                     <span class="text-xs text-error">{{ $message }}</span>
                 @enderror

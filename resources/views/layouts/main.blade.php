@@ -5,7 +5,7 @@
 
     {{-- Navbar --}}
     {{-- No navbar if it's the login page --}}
-    @if (!request()->is('login'))
+    @if (!request()->is('login','lupa-password'))
         {{-- Include Navbar based on Route Group or Route Name --}}
         @if (request()->is('admin*'))
         {{-- Admin Navbar --}}
@@ -24,7 +24,7 @@
     @endif
 
     
-    @if (!request()->is('login'))
+    @if (!request()->is('login','lupa-password'))
         @if (request()->is('admin*'))
         {{-- Admin Footer --}}
             @include('layouts.footer_admin')
@@ -46,5 +46,8 @@
             });
         });
     </script>
+
+    <script src="{{@asset('js/script.js')}}"></script>
+    
 </body>
 </html>

@@ -9,6 +9,7 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -17,6 +18,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Lupa Password
+Route::get('/lupa-password', [AuthController::class, 'lupaPassword'])->name('lupa-password')->middleware('guest');
+Route::post('/lupa-password', [AuthController::class, 'sendLupaPassword'])->name('lupa-password.post')->middleware('guest');
 
 // Berita
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
@@ -54,4 +59,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function (){
     Route::get('/daftar-pesan', [PesanController::class, 'daftar'])->name('admin.daftar-pesan');
     Route::post('/daftar-pesan/delete/{id}', [PesanController::class, 'destroy'])->name('admin.daftar-pesan.destroy');
 
+    // Edit Profil
+    Route::get('/edit-profil', [UserController::class, 'edit'])->name('admin.edit-profil');
+    Route::post('/edit-profil', [UserController::class, 'update'])->name('admin.edit-profil.update');
+    Route::post('/edit-profil/password', [UserController::class, 'updatePassword'])->name('admin.edit-profil.update-password');
 });

@@ -16,7 +16,10 @@ class BeritaController extends Controller
     {
         $title = 'MSI Kabupaten Wonogiri | Berita';
         $beritaTerbaru = berita::orderBy('id', 'desc')->take(1)->get();
-        if($beritaTerbaru){
+        // if berita terbaru empty
+
+
+        if(!$beritaTerbaru->isEmpty()){
             $newest = [$beritaTerbaru[0]->id];
             // selain terbaru
             $berita = berita::whereNotIn('id', $newest)->orderBy('id', 'desc')->paginate(5);
@@ -50,6 +53,7 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         request()->validate([
             'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'judul' => 'required',
