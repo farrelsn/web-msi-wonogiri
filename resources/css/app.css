@@ -16,6 +16,11 @@ trix-toolbar [data-trix-button-group="file-tools"] {
     display: none;
 }
 
+trix-editor {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 .poppins-thin {
     font-family: "Poppins", sans-serif;
     font-weight: 100;

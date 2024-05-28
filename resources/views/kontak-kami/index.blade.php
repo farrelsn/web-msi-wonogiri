@@ -58,13 +58,13 @@
             <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md ">
                 <div class="lg:w-1/2 px-6">
                     <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Alamat</h2>
-                    <p class="mt-1">Jatirejo, Wonoboyo, Kec. Wonogiri, Kabupaten Wonogiri, Jawa Tengah 57615</p>
+                    <p class="mt-1 text-xs md:text-sm xl:text-base">Jatirejo, Wonoboyo, Kec. Wonogiri, Kabupaten Wonogiri, Jawa Tengah 57615</p>
                 </div>
                 <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
                     <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Email</h2>
-                    <a class="leading-relaxed">ssr.msikabwonogiri@gmail.com</a>
+                    <a class="leading-relaxed text-xs md:text-sm xl:text-base">ssr.msikabwonogiri@gmail.com</a>
                     <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4 uppercase">Nomor telepon</h2>
-                    <p class="leading-relaxed">123-456-7890</p>
+                    <p class="leading-relaxed text-xs md:text-sm xl:text-base">123-456-7890</p>
                 </div>
             </div>
         </div>

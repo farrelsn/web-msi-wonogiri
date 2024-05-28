@@ -21,7 +21,7 @@
                 <li class="active">Berita dan Kegiatan</li> 
             </ul>
         </div> --}}
-        <nav class="w-full mt-2 rounded-md  flex items-center justify-center">
+        <nav class="w-full mt-2 rounded-md flex items-center justify-center text-xs md:text-sm lg:text-base ">
             <ol class="list-reset flex">
               <li>
                 <a href="{{route('home')}}">Beranda</a>
@@ -37,16 +37,16 @@
 </section>
 
 @if(count($beritaTerbaru) > 0)
-<section class="flex flex-col justify-center items-center bg-slate-200 text-black py-8" id="berita-terbaru" style="min-height: 50vh;">
-    <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan Terbaru</div>
-    <div class="card card-side rounded-sm bg-base-100 shadow-xl my-4 ">
-        <figure><img class="h-64 w-64 " src="{{ ($beritaTerbaru[0]->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$beritaTerbaru[0]->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$beritaTerbaru[0]->gambar))  }}" alt="Foto Berita"/></figure>
-        <div class="card-body h-64 w-96 ">
+<section class="flex flex-col justify-center items-center bg-gray-100 text-black py-8" id="berita-terbaru" style="min-height: 50vh;">
+    <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl  text-black uppercase">Berita & Kegiatan Terbaru</div>
+    <div class="card md:card-side rounded-none md:rounded-lg bg-white shadow-xl my-4 hover:scale-105 ease-in duration-150">
+        <figure><img class="h-full max-h-64 max-w-64 " src="{{ ($beritaTerbaru[0]->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$beritaTerbaru[0]->gambar)) ? asset('foto_berita/'.$beritaTerbaru[0]->gambar) : asset('foto_berita/empty.jpg'))  }}" alt="Foto Berita"/></figure>
+        <div class="card-body max-h-64 max-w-96 text-black">
           <h2 class="card-title">{{ $beritaTerbaru[0]->judul }}</h2>
-          <p class="overflow-hidden">{{ strip_tags(Str::limit($beritaTerbaru[0]->isi, 100, $end='...')) }}</p>
+          <p class="overflow-hidden text-sm md:text-base">{{ strip_tags(Str::limit($beritaTerbaru[0]->isi, 100, $end='...')) }}</p>
           {{-- <p class="">{!! Str::limit($beritaTerbaru[0]->isi,100) !!}</p> --}}
           <div class="card-actions justify-end">
-            <a href="{{ route('berita.show',$beritaTerbaru[0]->id) }}" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
+            <a href="{{ route('berita.show',$beritaTerbaru[0]->id) }}" class="text-sm md:text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Selengkapnya</a>
           </div>
         </div>
     </div>
@@ -65,18 +65,18 @@
 @endif
 
 @if($berita->count() > 0)
-<section id="berita" class="py-8 min-h-screen ">
+<section id="berita" class="py-8 min-h-screen bg-gray-100">
     <div class="container mx-auto ">
-        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan Lainnya</div>
-        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
+        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-slate-800 uppercase">Berita & Kegiatan Lainnya</div>
+        <div class="p-2 text-center text-base md:text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
         {{-- <div class="divider divider-warning font-bold"></div> --}}
         @if($berita->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-10 lg:p-10">
             @foreach ($berita as $b)
             <div
-                class="border-r border-b border-l border-slate-400 lg:border-t lg:border-slate-400 bg-white rounded-b lg:rounded-b-none h-full lg:rounded-r hover:scale-105 transition-all duration-300 flex flex-col justify-start leading-normal">
+                class="border-r border-b border-l border-slate-400 lg:border-t lg:border-slate-400 bg-white rounded-b lg:rounded-b-none h-full lg:rounded-r  hover:drop-shadow-xl transition-all duration-300 flex flex-col justify-start leading-normal">
                 <div class="h-80 w-full">
-                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar))  }}" class="w-contain mb-3">
+                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ? asset('foto_berita/'.$b->gambar) : asset('foto_berita/empty.jpg'))  }}" class="w-contain mb-3">
                 </div>
                 <div class="p-4 pt-2 text-center ">
                     <div class="mb-8">
@@ -91,7 +91,7 @@
             </div>
             @endforeach
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center mt-4">
             {{ $berita->links('../layouts.pagination') }}
         </div>
         @else

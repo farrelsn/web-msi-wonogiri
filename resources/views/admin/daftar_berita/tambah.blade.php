@@ -4,7 +4,7 @@
 <div class="container px-12 min-h-screen" >
     {{-- Form Tambah Berita --}}
     <div class="bg-white rounded-xl shadow-xl p-8 w-full my-2">
-        <a href="{{ route('admin.daftar-pengurus') }}" class="btn btn-outline btn-xs sm:btn-sm md:btn-sm btn-primary text-white my-2">Kembali</a>
+        <a href="{{ route('admin.daftar-berita') }}" class="btn btn-outline btn-xs sm:btn-sm md:btn-sm btn-primary text-white my-2">Kembali</a>
         <div class="mt-2">
             <h2 class="text-2xl font-bold" >Form Tambah Berita</h2>
             <div class="divider divider-warning m-0"></div>

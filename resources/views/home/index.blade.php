@@ -22,17 +22,17 @@
 </section>
 
 @if($berita->count() > 0)
-<section id="berita" class="py-8 min-h-screen z-20 bg-slate-200">
+<section id="berita" class="py-8 min-h-screen z-20 bg-gray-100">
     <div class="container mx-auto ">
-        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-3xl text-slate-800 uppercase">Berita & Kegiatan</div>
-        <div class="p-2 text-center text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
+        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-black uppercase">Berita & Kegiatan</div>
+        <div class="p-2 text-center text-base md:text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
         {{-- <div class="divider divider-warning font-bold"></div> --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-10 lg:p-10">
             @foreach($berita as $b)
             <div
-                class="border border-slate-400 lg:border-slate-400 bg-white rounded h-full hover:scale-105 transition-all duration-300 flex flex-col justify-start leading-normal">
+                class="border border-slate-400 lg:border-slate-400 bg-white rounded h-full  hover:drop-shadow-xl transition-all duration-300 flex flex-col justify-start leading-normal">
                 <div class="h-80 w-full">
-                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar))  }}" class="w-contain mb-3">
+                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ?  asset('foto_berita/'.$b->gambar) : asset('foto_berita/empty.jpg'))  }}" class="w-contain mb-3">
                 </div>
                 <div class="p-4 pt-2 text-center ">
                     <div class="mb-8">
@@ -48,13 +48,21 @@
             @endforeach
     
         </div>
-        <div class="flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center mt-4">
             {{-- <a href="" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Lihat Semua</a>
              --}}
              <a class="font-semibold hover:text-indigo-600 hover:translate-x-1 underline transition-all duration-300 " href="{{ route('berita') }}">Berita Lainnya <i class="fa-solid fa-arrow-right"></i></a>
 
         </div>
         
+    </div>
+</section>
+@else
+<section id="berita" class="py-8 min-h-screen z-20 bg-gray-100">
+    <div class="container mx-auto ">
+        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-black uppercase">Berita & Kegiatan</div>
+        <div class="p-2 text-center text-base md:text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
+        {{-- <div class="divider divider-warning font-bold"></div> --}}
     </div>
 </section>
 @endif
@@ -84,9 +92,9 @@
     <div class="container relative z-10 ">
         <div class="flex flex-wrap text-center lg:text-start">
             <div class="w-full lg:w-full px-4 lg:ps-96 lg:pl-96">
-                <span class="block font-bold text-3xl lg:text-4xl text-white uppercase">Visi dan Misi Yayasan Mentari Sehat Indonesia</span>
-                <h2 class="font-medium text-slate-400 mb-5 uppercase">Kabupaten Wonogiri</h2>
-                <p class="font-bold italic text-slate-200 mb-10 leading-relaxed">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
+                <span class="block font-bold text-2xl md:text-3xl lg:text-4xl text-white uppercase">Visi dan Misi Yayasan Mentari Sehat Indonesia</span>
+                <h2 class="font-medium text-slate-400 text-sm md:text-base mb-5 uppercase">Kabupaten Wonogiri</h2>
+                <p class="font-bold italic text-slate-200 text-sm md:text-base mb-10 leading-relaxed">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
                 <a href="{{ route('profil') }}" class="text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Tentang Kami<i class="ms-4 fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
@@ -94,7 +102,7 @@
 </section>
 
 
-{{-- <section id="visi-misi" class="py-8 min-h-screen  text-slate-800 bg-cover bg-center w-full  bg-green-500" style="
+{{-- <section id="visi-misi" class="py-8 min-h-screen  text-black bg-cover bg-center w-full  bg-green-500" style="
     /* background: rgb(34,197,94);
     background: linear-gradient(43deg, rgba(34,197,94,1) 31%, rgba(0,255,169,1) 100%);  */
     /* background: rgb(252,252,69);
@@ -136,10 +144,10 @@
 
 
 {{-- Pengurus --}}
-<section id="pengurus" class="py-8 bg-white min-h-screen">
+<section id="pengurus" class="py-8 bg-gray-100 min-h-screen">
     <div class="container mx-auto">
-        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-start font-bold text-3xl text-slate-800 uppercase">Pengurus</div>
-        <div class="p-2 text-center text-lg text-gray-400">Daftar pengurus SSR MSI Kabupaten Wonogiri.</div>
+        <div class="w-fit mx-auto border-b-4 p-2 text-center lg:text-start border-orange-500 font-bold text-2xl md:text-3xl lg:text-4xl text-black uppercase">Pengurus</div>
+        <div class="p-2 text-center text-base md:text-lg text-gray-400">Daftar pengurus SSR MSI Kabupaten Wonogiri.</div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 p-10">
         @if($pengurus->count() > 0)
@@ -150,7 +158,7 @@
                     <img src="{{ ($p->foto == null) ? asset('foto_pengurus/562ebed9cd49b9a09baa35eddfe86b00.jpg') : asset('foto_pengurus/'.$p->foto) }}" class="object-fill h-full w-full rounded-full" alt="">
                 </div>
                 <div class="text-center pt-8">
-                    <h3 class="font-bold text-xl text-slate-800">{{ $p->nama }}</h3>
+                    <h3 class="font-bold text-xl text-black">{{ $p->nama }}</h3>
                     <p class="text-gray-400 font-semibold italic">{{ $p->jabatan }}</p>
                 </div>
             </div>

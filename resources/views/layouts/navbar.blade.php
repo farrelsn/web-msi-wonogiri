@@ -11,14 +11,15 @@
           <li>
             <a>Tentang MSI Wonogiri</a>
             <ul class="p-2 ">
-              <li><a href="{{ route('profil') }}">Profil</a></li>
+              <li><a href="{{ route('profil') }}">Tentang Kami</a></li>
               <li><a href="{{ route('pengurus') }}">Pengurus</a></li>
             </ul>
           </li>
-          <li><a>Item 3</a></li>
+          <li><a href="{{ route('berita') }}">Berita & Kegiatan</a></li>
+          <li><a href="{{ route('kontak-kami') }}">Kontak Kami</a></li>
         </ul>
       </div>
-      <a href="{{ route('home') }}"><img src="images/msi-wonogiri.png" class="w-24 md:w-16 lg:w-20" alt="" style=""></a>
+      <a href="{{ route('home') }}"><img src="images/msi-wonogiri.png" class="w-16 lg:w-20" alt="" style=""></a>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
@@ -37,7 +38,7 @@
       </ul>
     </div>
     <div class="navbar-end">
-      <a href="{{ route('login') }}" class="text-sm lg:text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Login</a>
+      <a href="{{ route('login') }}" class="text-xs md:text-sm lg:text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Login</a>
     </div>
 </div>
 
