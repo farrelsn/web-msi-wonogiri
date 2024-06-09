@@ -69,7 +69,7 @@
                 @else
                     <img class="mx-auto" src="{{ asset('foto_berita/empty.jpg') }}" alt="" style="width: 200px">
                 @endif --}}
-                <img class="mx-auto" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ?  asset('foto_berita/'.$b->gambar) : asset('foto_berita/empty.jpg'))  }}" alt="" style="width: 200px"></td>
+                <img class="mx-auto" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ?  asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar)) }}" alt="" style="width: 200px"></td>
               <td class="text-center">{{$b->user->username}}</td>
               <td class="text-center">
                 <a class="btn btn-warning text-white my-1" href="{{ route('admin.daftar-berita.edit', $b->id) }}">Edit</a>
