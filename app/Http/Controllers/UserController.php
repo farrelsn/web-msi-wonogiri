@@ -55,7 +55,18 @@ class UserController extends Controller
      */
     public function update(Request $request, User $users)
     {
-        //
+        $request->validate([
+            'email' => 'required|email',
+        ],[
+            'email.required' => 'Email tidak boleh kosong',
+            'email.email' => 'Email tidak valid',
+        ]);
+
+        User::where('id', Auth::user()->id)->update([
+            'email' => $request->input('email')
+        ]);
+
+        return redirect()->back()->with('success', 'Profil berhasil diubah');
     }
 
     public function updatePassword(Request $request, User $users)

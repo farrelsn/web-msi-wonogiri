@@ -6,7 +6,7 @@
             onclick="window.location.href='{{ $paginator->previousPageUrl() }}'"
         @endif
         >«</button>
-    <button class="join-item btn">Page {{ $paginator->currentPage() }}</button>
+    <button class="join-item btn bg-white">Page {{ $paginator->currentPage() }}</button>
     <button class="join-item btn" 
         @if($paginator->currentPage() == $paginator->lastPage())
             disabled

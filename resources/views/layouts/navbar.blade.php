@@ -38,7 +38,7 @@
       </ul>
     </div>
     <div class="navbar-end">
-      <a href="{{ route('login') }}" class="text-xs md:text-sm lg:text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Login</a>
+      <a href="{{ route('login') }}" class="text-sm lg:text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Login</a>
     </div>
 </div>
 

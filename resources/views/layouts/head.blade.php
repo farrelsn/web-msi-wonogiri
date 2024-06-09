@@ -8,6 +8,7 @@
 
     <script>document.documentElement.classList.add('js')</script>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     @vite(['resources/css/app.css','resources/js/app.js'])
     {{-- @trixassets --}}

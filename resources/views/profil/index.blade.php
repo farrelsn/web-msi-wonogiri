@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-<section class="flex items-center bg-cover bg-center" id="beranda" style="min-height: 50vh; background-image:url('images/profil-msi.jpeg')">
+<section class="flex items-center bg-cover bg-center" id="beranda" style="min-height: 50vh; background-image:url({{asset('images/profil-msi.jpeg')}})">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container relative z-10 mx-auto text-center text-white uppercase mt-6">
         <h2 class="w-fit mx-auto text-center font-bold text-3xl md:text-4xl lg:text-5xl ">Tentang Kami</h1>
-        <nav class="w-full mt-2 rounded-md  flex items-center justify-center">
+        <nav class="w-full mt-2 rounded-md text-xs md:text-sm lg:text-base flex items-center justify-center">
             <ol class="list-reset flex">
               <li>
                 <a href="{{route('home')}}">Beranda</a>
@@ -150,7 +150,7 @@
             @foreach($pengurus as $p)
             <div class="flex flex-col items-center justify-center">
 
-                <div class="h-72 w-72">
+                <div class="h-60 w-60 hover:scale-105 duration-300">
                     <img src="{{ ($p->foto == null) ? asset('foto_pengurus/562ebed9cd49b9a09baa35eddfe86b00.jpg') : asset('foto_pengurus/'.$p->foto) }}" class="object-fill h-full w-full rounded-full" alt="">
                 </div>
                 <div class="text-center pt-8">

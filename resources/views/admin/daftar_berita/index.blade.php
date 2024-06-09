@@ -86,7 +86,7 @@
     <div class="flex flex-col items-center justify-center h-screen">
         <img src="{{ asset('images/not_found.jpg') }}" alt="" style="width: 25%">
         <h2 class="text-xl mt-2 text-black">Data Tidak Ditemukan</h2>
-        <h3 class="text-lg text-slate-400">Belum ada data pengurus yang terdaftar</h3>
+        <h3 class="text-lg text-slate-400">Belum ada berita</h3>
     </div>
     @endif
   </div>

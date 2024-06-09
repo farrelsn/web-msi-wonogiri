@@ -27,11 +27,11 @@
     </script>
 @endif
     
-<section class="flex items-center bg-cover bg-center" id="beranda" style="min-height: 50vh; background-image:url('images/validasi-data.jpeg')">
+<section class="flex items-center bg-cover bg-center" id="beranda" style="min-height: 50vh; background-image:url({{asset('images/validasi-data.jpeg')}})">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container relative z-10 mx-auto text-center text-white uppercase mt-6">
         <h2 class="w-fit mx-auto text-center font-bold text-3xl md:text-4xl lg:text-5xl ">Kontak Kami</h1>
-        <nav class="w-full mt-2 rounded-md  flex items-center justify-center">
+        <nav class="w-full mt-2 rounded-md text-xs md:text-sm lg:text-base flex items-center justify-center">
             <ol class="list-reset flex">
               <li>
                 <a href="{{route('home')}}">Beranda</a>
@@ -63,8 +63,8 @@
                 <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
                     <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Email</h2>
                     <a class="leading-relaxed text-xs md:text-sm xl:text-base">ssr.msikabwonogiri@gmail.com</a>
-                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4 uppercase">Nomor telepon</h2>
-                    <p class="leading-relaxed text-xs md:text-sm xl:text-base">123-456-7890</p>
+                    {{-- <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4 uppercase">Nomor telepon</h2>
+                    <p class="leading-relaxed text-xs md:text-sm xl:text-base"></p> --}}
                 </div>
             </div>
         </div>
@@ -76,17 +76,17 @@
                 @csrf
             <div class="relative mb-4">
                 <label for="nama" class="leading-7 text-sm text-gray-600">Nama</label>
-                <input type="text" id="nama" name="nama" class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="text" id="nama" name="nama" class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-                <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="pesan" class="leading-7 text-sm text-gray-600">Pesan</label>
-                <textarea id="pesan" name="pesan" class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                <textarea id="pesan" name="pesan" class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
             </div>
-            <button class="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg" type="submit">Kirim Pesan</button>
+            <button class="text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 duration-300 ease-in-out rounded text-lg" type="submit">Kirim Pesan</button>
             {{-- <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral
                 artisan.</p> --}}
             </form>

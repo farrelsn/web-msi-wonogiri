@@ -3,16 +3,16 @@
 @section('content')
 
 {{-- Hero --}}
-<section id="home" class="flex items-center bg-cover bg-center min-h-screen z-30" style="background-image: url('images/msi-wonogiri-puskesmas.jpeg')">
+<section id="home" class="flex items-center bg-cover bg-center min-h-screen z-30" style="background-image: url({{asset('images/msi-wonogiri-puskesmas.jpeg')}})">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container relative z-30 mx-auto ">
         <div class="flex flex-wrap text-center lg:text-start">
             <div class="w-full lg:w-1/2 px-4">
                 <h1 class="text-base font-semibold text-green-500">Selamat Datang di Website Resmi...</h1>
                 <span class="block font-bold  text-3xl lg:text-4xl text-white uppercase">Yayasan Mentari Sehat Indonesia</span>
-                <h2 class="font-medium text-slate-400 mb-5 uppercase">Kabupaten Wonogiri</h2>
-                <p class="font-bold italic text-slate-200 mb-10 leading-relaxed">“Segeralah Shalat agar hatimu tenang, Istighfarlah agar kecewamu hilang. Dan Berdoalah agar bahagiamu segera datang.”</p>
-                <a class="cursor-pointer text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out" id="btn-selengkapnya">Selengkapnya</a>
+                <h2 class="font-medium text-slate-400 mb-5 uppercase text-sm md:text-base">Kabupaten Wonogiri</h2>
+                <p class="font-bold italic text-slate-200 mb-10 leading-relaxed text-sm md:text-base">“Segeralah Shalat agar hatimu tenang, Istighfarlah agar kecewamu hilang. Dan Berdoalah agar bahagiamu segera datang.”</p>
+                <a class="cursor-pointer font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg text-sm md:text-base hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out" id="btn-selengkapnya">Selengkapnya</a>
             </div>
             {{-- <div class="w-full lg:w-1/2 px-4">
                 
@@ -30,9 +30,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-10 lg:p-10">
             @foreach($berita as $b)
             <div
-                class="border border-slate-400 lg:border-slate-400 bg-white rounded h-full  hover:drop-shadow-xl transition-all duration-300 flex flex-col justify-start leading-normal">
+                class="border border-slate-400 lg:border-slate-400 bg-white rounded h-full mx-2  hover:drop-shadow-xl transition-all duration-300 flex flex-col justify-start leading-normal">
                 <div class="h-80 w-full">
-                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ?  asset('foto_berita/'.$b->gambar) : asset('foto_berita/empty.jpg'))  }}" class="w-contain mb-3">
+                    <img class="object-fill h-full w-full" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ?  asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar))  }}" class="w-contain mb-3">
                 </div>
                 <div class="p-4 pt-2 text-center ">
                     <div class="mb-8">
@@ -84,7 +84,7 @@
 </section> --}}
 
 
-<section id="visi-misi" class="flex flex-row items-center justify-between bg-cover bg-center min-h-screen bg-green-600" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
+<section id="visi-misi" class="flex flex-row items-center justify-between bg-cover bg-center min-h-screen bg-green-600" style="background-image: url({{asset('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')}})">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="h-full">
         {{-- <img class="w-1/2 h-fit" src="{{ asset('images/msi-wonogiri-gambar.jpg') }}" alt=""> --}}
@@ -95,7 +95,7 @@
                 <span class="block font-bold text-2xl md:text-3xl lg:text-4xl text-white uppercase">Visi dan Misi Yayasan Mentari Sehat Indonesia</span>
                 <h2 class="font-medium text-slate-400 text-sm md:text-base mb-5 uppercase">Kabupaten Wonogiri</h2>
                 <p class="font-bold italic text-slate-200 text-sm md:text-base mb-10 leading-relaxed">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
-                <a href="{{ route('profil') }}" class="text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Tentang Kami<i class="ms-4 fa-solid fa-arrow-right-long"></i></a>
+                <a href="{{ route('profil') }}" class="text-sm md:text-base font-semibold text-white bg-green-500 py-3 px-8 rounded-full hover:shadow-lg hover:bg-green-700 hover:text-slate-200 transition duration-300 ease-in-out">Tentang Kami<i class="ms-4 fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
     </div>
@@ -154,7 +154,7 @@
             @foreach($pengurus as $p)
             <div class="flex flex-col items-center justify-center">
 
-                <div class="h-72 w-72">
+                <div class="h-60 w-60 hover:scale-105 duration-300">
                     <img src="{{ ($p->foto == null) ? asset('foto_pengurus/562ebed9cd49b9a09baa35eddfe86b00.jpg') : asset('foto_pengurus/'.$p->foto) }}" class="object-fill h-full w-full rounded-full" alt="">
                 </div>
                 <div class="text-center pt-8">

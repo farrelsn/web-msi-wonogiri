@@ -20,8 +20,8 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('login.auth
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Lupa Password
-Route::get('/lupa-password', [AuthController::class, 'lupaPassword'])->name('lupa-password')->middleware('guest');
-Route::post('/lupa-password', [AuthController::class, 'sendLupaPassword'])->name('lupa-password.post')->middleware('guest');
+// Route::get('/lupa-password', [AuthController::class, 'lupaPassword'])->name('lupa-password')->middleware('guest');
+// Route::post('/lupa-password', [AuthController::class, 'sendLupaPassword'])->name('lupa-password.post')->middleware('guest');
 
 // Berita
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
