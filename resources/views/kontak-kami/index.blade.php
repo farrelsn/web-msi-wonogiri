@@ -52,19 +52,19 @@
             class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
             <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
                 marginwidth="0" scrolling="no"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8051651730907!2d110.93835187500527!3d-7.810438892210045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a2f271ed0c671%3A0x382d5a74eb9e26e9!2sYayasan%20Mentari%20Sehat%20Indonesia%20Cabang%20Wonogiri!5e0!3m2!1sen!2sid!4v1713514131432!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7126686174433!2d110.91634697406802!3d-7.820207177661149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a2e3acb104449%3A0x945b99c4b08f3503!2s5WH9%2BWH7%2C%20Cubluk%2C%20Giritirto%2C%20Kec.%20Wonogiri%2C%20Kabupaten%20Wonogiri%2C%20Jawa%20Tengah!5e0!3m2!1sen!2sid!4v1718336321216!5m2!1sen!2sid"
                 style=""
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md ">
                 <div class="lg:w-1/2 px-6">
                     <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Alamat</h2>
-                    <p class="mt-1 text-xs md:text-sm xl:text-base">Jatirejo, Wonoboyo, Kec. Wonogiri, Kabupaten Wonogiri, Jawa Tengah 57615</p>
+                    <p class="mt-1 text-xs md:text-sm xl:text-base">Cubluk, RT.02/RW.04, Sukorejo, Giritirto, Kec. Wonogiri, Kab. Wonogiri, Jawa Tengah 57611</p>
                 </div>
                 <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
                     <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs uppercase">Email</h2>
                     <a class="leading-relaxed text-xs md:text-sm xl:text-base">ssr.msikabwonogiri@gmail.com</a>
-                    {{-- <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4 uppercase">Nomor telepon</h2>
-                    <p class="leading-relaxed text-xs md:text-sm xl:text-base"></p> --}}
+                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4 uppercase">Nomor telepon</h2>
+                    <p class="leading-relaxed text-xs md:text-sm xl:text-base">+62 857-2975-1215</p>
                 </div>
             </div>
         </div>

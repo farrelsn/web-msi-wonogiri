@@ -58,10 +58,10 @@
     </div>
     <div class="flex flex-col lg:flex-row justify-center content-center mb-8 text-sm lg:text-base">
       <div class="py-2 lg:w-1/2 text-center">
-        <p>Jatirejo, Wonoboyo, Kec. Wonogiri, Kabupaten Wonogiri, Jawa Tengah 57615</p> 
+        <p>Cubluk, RT.02/RW.04, Sukorejo, Giritirto, Kec. Wonogiri, Kab. Wonogiri, Jawa Tengah 57611</p> 
       </div>
       <div class="py-2 lg:w-1/2 text-center">
-        <p>Phone:</p>
+        <p>Phone: +62 857-2975-1215</p>
         <p class="">Email: ssr.msikabwonogiri@gmail.com</p>
       </div>
     </div>

@@ -49,6 +49,7 @@
             <th>Isi</th>
             <th>Foto</th>
             <th>Uploader</th>
+            <th>Dibuat tanggal</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -71,6 +72,7 @@
                 @endif --}}
                 <img class="mx-auto" src="{{ ($b->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$b->gambar)) ?  asset('foto_berita/empty.jpg') : asset('foto_berita/'.$b->gambar)) }}" alt="" style="width: 200px"></td>
               <td class="text-center">{{$b->user->username}}</td>
+              <td class="text-center">{{ $b->created_at }}</td>
               <td class="text-center">
                 <a class="btn btn-warning text-white my-1" href="{{ route('admin.daftar-berita.edit', $b->id) }}">Edit</a>
                 <form onsubmit="return confirm('Apakah Anda Yakin ingin menghapus data ini?');" action="{{ route('admin.daftar-berita.destroy', $b->id) }}" method="POST" class="inline-block">

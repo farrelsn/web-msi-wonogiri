@@ -28,6 +28,10 @@
     </div>
 </section>
 
+<div class="container mt-4">
+    <a href="{{ url()->previous() }}" class="font-semibold hover:text-indigo-600 hover:translate-x-1 underline transition-all duration-300 px-4"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+</div>
+
 <section id="berita" class="min-h-screen flex justify-center">
     {{-- Narasi --}}
     <div class="container mx-2 lg:mx-12 mb-8">
@@ -42,6 +46,7 @@
 
             <div class="prose text-sm p-4">{!! $berita->isi !!}</div>
         </div>
+    </div>
 </section>
 
 @endsection
