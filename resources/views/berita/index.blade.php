@@ -38,7 +38,7 @@
 
 @if(count($beritaTerbaru) > 0)
 <section class="flex flex-col justify-center items-center bg-white text-black py-8" id="berita-terbaru" style="min-height: 50vh;">
-    <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl  text-gray-800 uppercase">Berita & Kegiatan Terbaru</div>
+    <div class="w-fit mx-auto border-b-4 p-2 border-green-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl  text-gray-800 uppercase">Berita & Kegiatan Terbaru</div>
     <div class="card md:card-side rounded-none md:rounded-lg bg-white shadow-xl my-4 hover:scale-105 ease-in duration-150 mx-2">
         <figure><img class="h-full max-h-64 max-w-64 " src="{{ ($beritaTerbaru[0]->gambar == null) ? asset('foto_berita/empty.jpg') : (file_exists(asset('foto_berita/'.$beritaTerbaru[0]->gambar)) ? asset('foto_berita/empty.jpg') : asset('foto_berita/'.$beritaTerbaru[0]->gambar))  }}" alt="Foto Berita"/></figure>
         <div class="card-body max-h-64 max-w-96 text-black">
@@ -67,7 +67,7 @@
 @if($berita->count() > 0)
 <section id="berita" class="py-8 min-h-screen z-20 bg-white mb-4 mt-4 mx-4">
     <div class="lg:mx-24">
-        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase">Berita & Kegiatan</div>
+        <div class="w-fit mx-auto border-b-4 p-2 border-green-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase">Berita & Kegiatan</div>
         <div class="p-2 text-center text-base md:text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
         {{-- <div class="divider divider-warning font-bold"></div> --}}
         <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-10 lg:p-10">
@@ -91,11 +91,9 @@
             @endforeach
     
         </div>
-        <div class="flex flex-col items-center justify-center mt-4">
-            {{-- <a href="" class="text-base font-semibold text-white bg-yellow-300 py-3 px-8 mt-2 rounded-full hover:shadow-lg hover:bg-yellow-500 hover:text-slate-200 transition duration-300 ease-in-out">Lihat Semua</a>
-             --}}
-             <a class="font-semibold hover:text-indigo-600 hover:translate-x-1 underline transition-all duration-300 " href="{{ route('berita') }}">Berita Lainnya <i class="fa-solid fa-arrow-right"></i></a>
-
+        {{-- Pagination --}}
+        <div class="flex justify-center items-center">
+            {{ $berita->links('layouts.pagination') }}
         </div>
         
     </div>
@@ -103,7 +101,7 @@
 @else
 <section id="berita" class="py-8 min-h-screen bg-white">
     <div class="container mx-auto ">
-        <div class="w-fit mx-auto border-b-4 p-2 border-orange-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase">Berita & Kegiatan Lainnya</div>
+        <div class="w-fit mx-auto border-b-4 p-2 border-green-500 text-center font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase">Berita & Kegiatan Lainnya</div>
         <div class="p-2 text-center text-base md:text-lg text-gray-400">Kumpulan kegiatan terbaru yang dilaksanakan oleh MSI Kabupaten Wonogiri.</div>
         
     </div>

@@ -20,7 +20,7 @@
 </section>
 
 <section id="profil" class="mb-4 mt-4 mx-4 py-8">
-    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold p-2 text-center lg:text-start uppercase border-b-4 lg:mx-24 text-gray-800 border-orange-500 mb-4">Tentang Yayasan Mentari Sehat Indonesia</h1>
+    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold p-2 text-center lg:text-start uppercase border-b-4 lg:mx-24 text-gray-800 border-green-500 mb-4">Tentang Yayasan Mentari Sehat Indonesia</h1>
     <div class="lg:flex lg:flex-row-reverse w-full ">
 
         <div class="flex justify-center mb-4 mt lg:w-1/2 lg:me-24 lg:ms-2">
@@ -48,14 +48,14 @@
 {{-- <section id="visi-misi" class="py-8 min-h-screen bg-slate-700 text-white bg-cover bg-center" style="background-image: url('images/65ef0b371e821-tim-sub-sub-recipient-ssr-tbc-yayasan-mentari-sehat-indonesia-bersama-mahasiswa-magang-campus-leaders-program-clp-bakrie-center-foundation.jpg')">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="container relative flex flex-col items-center z-10 mx-auto">
-        <div class="w-fit border-b-4 p-2 border-orange-500 text-center  font-bold text-3xl uppercase">Visi Yayasan Mentari Indonesia</div>
+        <div class="w-fit border-b-4 p-2 border-green-500 text-center  font-bold text-3xl uppercase">Visi Yayasan Mentari Indonesia</div>
         <div class="p-2 text-center text-lg text-gray-700 bg-white mt-4 max-w-2xl rounded-md hover:scale-105 transition-all duration-300">
             <p class="text-justify text-base p-4">Visi yayasan Mentari Sehat Indonesia adalah penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat. </p>
             </div>
         </div>
     </div>
     <div class="container relative flex flex-col items-center mx-auto my-8">
-        <div class="w-fit border-b-4 p-2 border-orange-500 text-center font-bold text-3xl uppercase mb-4">Misi Yayasan Mentari Indonesia</div>
+        <div class="w-fit border-b-4 p-2 border-green-500 text-center font-bold text-3xl uppercase mb-4">Misi Yayasan Mentari Indonesia</div>
         <div class="grid md:grid-flow-col gap-4 px-16">
             <div class=" bg-white p-2 rounded-md text-center hover:scale-105 transition-all duration-300">
                 <h1 class="font-bold text-black p-2 text-xl">Bidang Kesehatan</h1>
@@ -78,7 +78,7 @@
     <div class="z-10 flex flex-col-reverse lg:items-center lg:flex-row-reverse lg:mx-24">
         <div class="w-full lg:w-1/2 flex flex-wrap text-center lg:text-start lg:mt-12">
             <div class="w-full mx-4 ">
-                <span class="block mt-2 font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase border-b-4 border-orange-500 p-2 mb-2">Visi Yayasan MSI</span>
+                <span class="block mt-2 font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase border-b-4 border-green-500 p-2 mb-2">Visi Yayasan MSI</span>
                 {{-- <h2 class="font-medium text-slate-400 mb-5 uppercase">Kabupaten Wonogiri</h2> --}}
                 <div class="">
                     <p class=" text-black mb-10 p-2 leading-relaxed text-sm lg:text-base">Penggerak terwujudnya infrastruktur kesehatan non pemerintah dan dinamika kelompok sosial yang mampu secara mandiri menanggulangi masalah kesehatan, sosial, dan pendidikan di masyarakat.</p>
@@ -96,7 +96,7 @@
     <div class="z-10 flex flex-col-reverse lg:items-center lg:flex-row lg:mx-24">
         <div class="w-full lg:w-1/2 flex flex-wrap lg:mt-12">
             <div class="w-full mx-4 ">
-                <span class="block mt-2 font-bold text-2xl md:text-3xl lg:text-4xl text-center lg:text-start text-gray-800 uppercase border-b-4 border-orange-500 p-2 mb-2">Misi Yayasan MSI</span>
+                <span class="block mt-2 font-bold text-2xl md:text-3xl lg:text-4xl text-center lg:text-start text-gray-800 uppercase border-b-4 border-green-500 p-2 mb-2">Misi Yayasan MSI</span>
                 {{-- <h2 class="font-medium text-slate-400 mb-5 uppercase">Kabupaten Wonogiri</h2> --}}
                 <div class="bg-white rounded-sm p-2 flex flex-row mb-4">
                     <div class="w-1/6 me-6">
@@ -148,7 +148,7 @@
 {{-- Pengurus --}}
 <section id="pengurus" class="py-8 bg-white min-h-screen ">
     <div class="container mx-auto">
-        <div class="w-fit mx-auto border-b-4 p-2 text-center lg:text-start border-orange-500 font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase">Pengurus</div>
+        <div class="w-fit mx-auto border-b-4 p-2 text-center lg:text-start border-green-500 font-bold text-2xl md:text-3xl lg:text-4xl text-gray-800 uppercase">Pengurus</div>
         <div class="p-2 text-center text-base md:text-lg text-gray-400">Daftar pengurus SSR MSI Kabupaten Wonogiri.</div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2  p-10">
