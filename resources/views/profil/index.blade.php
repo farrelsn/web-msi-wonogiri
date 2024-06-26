@@ -24,7 +24,7 @@
     <div class="lg:flex lg:flex-row-reverse w-full ">
 
         <div class="flex justify-center mb-4 mt lg:w-1/2 lg:me-24 lg:ms-2">
-        <img src="{{asset('images/high-quality-in-rainbows-desktop-background-v0-vvq3pmz35pea1.jpg')}}" class="" alt="">
+        <img class="h-full w-full" src="{{asset('images/tentang-kami.jpeg')}}"  alt="">
     </div>
     <div class="flex justify-center lg:w-1/2 lg:ms-24 lg:me-2">
         <div class="">
